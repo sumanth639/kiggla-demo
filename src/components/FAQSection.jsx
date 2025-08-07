@@ -74,12 +74,12 @@ const FAQSection = () => {
           </div>
 
           {/* Right Column: Image (40% width on desktop, hidden on mobile) */}
-          <div className="tw-hidden md:tw-block md:tw-w-5/12 tw-h-full tw-relative tw-p-4">
-            <div className="tw-h-full tw-rounded-3xl tw-shadow-2xl tw-overflow-hidden">
+          <div className="tw-hidden md:tw-block md:tw-w-5/12 tw-h-full tw-relative">
+            <div className="tw-h-full tw-rounded-3xl tw-shadow-2xl tw-overflow-hidden tw-group">
               <img
                 src="https://picsum.photos/seed/faq/800/600"
                 alt="An abstract image related to FAQs"
-                className="tw-w-full tw-h-full tw-object-cover"
+                className="tw-w-full tw-h-full tw-object-cover tw-grayscale tw-transition-all tw-duration-500 group-hover:tw-grayscale-0 group-hover:tw-scale-105"
               />
               <div className="tw-absolute tw-inset-0 tw-bg-primary/10 tw-z-10"></div>
             </div>
