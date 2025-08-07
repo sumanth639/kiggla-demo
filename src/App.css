@@ -31,6 +31,12 @@
     @apply tw-bg-background tw-text-text;
   }
 }
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 /* Custom CSS for the new RippleButton component */
 .tw-ripple-btn-new {
   position: relative;

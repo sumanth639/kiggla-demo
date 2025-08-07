@@ -240,7 +240,8 @@ export default function Header({ variant }) {
             initial="closed"
             animate="open"
             exit="closed"
-            className="lg:tw-hidden tw-fixed tw-left-0 tw-top-[90px] tw-h-screen tw-w-full tw-bg-background/95 tw-p-6 tw-z-[100] tw-overflow-y-auto"
+            // Changed from 'tw-bg-background/95' to 'tw-bg-background'
+            className="lg:tw-hidden tw-fixed tw-left-0 tw-top-[90px] tw-h-screen tw-w-full tw-bg-background tw-p-6 tw-z-[100] tw-overflow-y-auto"
           >
             <NavItems
               setMobileToggle={setMobileToggle}

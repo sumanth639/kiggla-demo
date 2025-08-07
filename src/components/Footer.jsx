@@ -1,211 +1,221 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaLinkedin,
+  FaTwitter,
+  FaInstagram,
+  FaArrowUp,
+} from 'react-icons/fa';
 
 const Footer = () => {
-  return (
-    <div className="_relative footer_3">
-      <div className="cta3">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 m-auto text-center">
-              <div className="heading2">
-                <h2> We are Committed To Businesses</h2>
-                <div className="space16"></div>
-                <p>
-                  At Kiggla IT Solutions, we are dedicated to delivering
-                  innovative technology solutions <br /> tailored to meet the
-                  unique needs of businesses like yours.{' '}
-                </p>
+  const currentYear = new Date().getFullYear();
 
-                <div className="row">
-                  <div className="col-lg-8 m-auto">
-                    <div className="subscribe-form">
-                      <form action="#">
-                        <input type="email" placeholder="Enter Your Email" />
-                        <div className="button">
-                          <button className="theme-btn4 btn--ripple ripple">
-                            Get Started Now{' '}
-                            <i className="bi bi-arrow-right"></i>
-                          </button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  return (
+    <footer className="tw-bg-gray-950 tw-text-gray-400 tw-py-12 md:tw-py-16 tw-relative">
+      {/* Subtle Gradient Background */}
+      <div className="tw-absolute tw-inset-0 tw-bg-gradient-to-t tw-from-gray-900 tw-to-transparent tw-opacity-20"></div>
+
+      <div className="tw-container tw-mx-auto tw-px-6 lg:tw-px-12 tw-relative tw-z-10">
+        {/* Main Footer Content */}
+        <div className="tw-flex tw-flex-col lg:tw-flex-row tw-justify-between tw-gap-12 lg:tw-gap-24 tw-pb-10 md:tw-pb-12 tw-border-b tw-border-gray-800">
+          {/* Left Side: Logo, Info, and Social Media */}
+          <div className="tw-space-y-6 lg:tw-w-3/12">
+            <div className="tw-flex tw-items-center">
+              <img
+                src="/assets/img/kiggla/logo-white.png"
+                alt="Kiggla Logo"
+                className="tw-h-12 tw-w-auto"
+              />
+            </div>
+            <p className="tw-text-base tw-leading-relaxed tw-max-w-sm">
+              At Kiggla IT Solutions, we are dedicated to delivering innovative
+              technology solutions tailored to meet the unique needs of
+              businesses.
+            </p>
+            {/* Follow Us Section Moved Here */}
+            <h4 className="tw-text-xl tw-font-semibold tw-text-white tw-mt-6 tw-mb-4">
+              Follow Us
+            </h4>
+            <div className="tw-flex tw-space-x-6">
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="transition-colors tw-text-gray-400 hover:tw-text-primary"
+              >
+                <FaLinkedin className="tw-h-6 tw-w-6" />
+              </a>
+              <a
+                href="#"
+                aria-label="Twitter"
+                className="transition-colors tw-text-gray-400 hover:tw-text-primary"
+              >
+                <FaTwitter className="tw-h-6 tw-w-6" />
+              </a>
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="transition-colors tw-text-gray-400 hover:tw-text-primary"
+              >
+                <FaInstagram className="tw-h-6 tw-w-6" />
+              </a>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div className="footer _relative">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-4 col-md-6 col-12">
-              <div className="single-footer-items footer-logo-area">
-                <div className="footer-logo">
-                  <a href="">
-                    <img
-                      className="h-16 w-auto max-w-[150px]"
-                      src="/assets/img/kiggla/logo-black.png"
-                      alt="Kiggla Logo"
-                    />
+          {/* Right Side: Links & Contact Info */}
+          <div className="tw-grid tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-8 lg:tw-gap-16 tw-w-full lg:tw-w-9/12">
+            {/* Quick Links */}
+            <div>
+              <h4 className="tw-text-xl tw-font-semibold tw-text-white tw-mb-4">
+                Quick Links
+              </h4>
+              <ul className="tw-space-y-2">
+                <li>
+                  <Link
+                    to="#"
+                    className="transition-colors tw-text-base hover:tw-text-primary"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#"
+                    className="transition-colors tw-text-base hover:tw-text-primary"
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#"
+                    className="transition-colors tw-text-base hover:tw-text-primary"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#"
+                    className="transition-colors tw-text-base hover:tw-text-primary"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="tw-text-xl tw-font-semibold tw-text-white tw-mb-4">
+                Services
+              </h4>
+              <ul className="tw-space-y-2">
+                <li>
+                  <Link
+                    to="#"
+                    className="transition-colors tw-text-base hover:tw-text-primary"
+                  >
+                    Web Dev
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#"
+                    className="transition-colors tw-text-base hover:tw-text-primary"
+                  >
+                    UI/UX Design
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#"
+                    className="transition-colors tw-text-base hover:tw-text-primary"
+                  >
+                    Digital Marketing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="#"
+                    className="transition-colors tw-text-base hover:tw-text-primary"
+                  >
+                    IT Consulting
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Let's Talk & Contact Info */}
+            <div className="tw-col-span-2 lg:tw-col-span-1">
+              <h4 className="tw-text-xl tw-font-semibold tw-text-white tw-mb-4">
+                Let's Talk
+              </h4>
+              <div className="tw-space-y-4">
+                {/* Email Card */}
+                <div className="duration-300 tw-flex tw-items-center tw-space-x-3 tw-bg-gray-800 tw-p-3 tw-rounded-lg tw-transition-colors hover:tw-bg-gray-700 tw-max-w-xs">
+                  <FaEnvelope className="tw-text-primary tw-flex-shrink-0 tw-h-5 tw-w-5" />
+                  <a
+                    href="mailto:andrew@kiggla.com"
+                    className="transition-colors tw-text-base tw-font-medium hover:tw-text-white tw-truncate"
+                  >
+                    andrew@kiggla.com
                   </a>
                 </div>
-                <div className="space20"></div>
-                <div className="heading2">
-                  <p>
-                    At Kiggla IT Solutions, we are dedicated to delivering
-                    innovative technology solutions tailored to meet the unique
-                    needs of businesses like yours.{' '}
+                {/* Phone Card */}
+                <div className="duration-300 tw-flex tw-items-center tw-space-x-3 tw-bg-gray-800 tw-p-3 tw-rounded-lg tw-transition-colors hover:tw-bg-gray-700 tw-max-w-xs">
+                  <FaPhone className="tw-text-primary tw-flex-shrink-0 tw-h-5 tw-w-5" />
+                  <a
+                    href="tel:+1215797034"
+                    className="transition-colors tw-text-base tw-font-medium hover:tw-text-white"
+                  >
+                    +1215797034
+                  </a>
+                </div>
+                {/* Address Card */}
+                <div className="duration-300 tw-flex tw-items-start tw-space-x-3 tw-bg-gray-800 tw-p-3 tw-rounded-lg tw-transition-colors hover:tw-bg-gray-700 tw-max-w-xs">
+                  <FaMapMarkerAlt className="tw-text-primary tw-flex-shrink-0 tw-h-5 tw-w-5 tw-mt-1" />
+                  <p className="tw-text-base tw-font-medium">
+                    5400 NW 22nd Ave, Miami, FL 33142
                   </p>
                 </div>
-                <ul className="social-icon">
-                  <li>
-                    <a href="#">
-                      <i className="bi bi-linkedin"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="bi bi-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="bi bi-youtube"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="bi bi-instagram"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-lg col-md-6 col-12">
-              <div className="single-footer-items">
-                <h3>Service We Offer</h3>
-
-                <ul className="menu-list">
-                  <li>
-                    <Link to="/service/service-details">
-                      Cloud Computing Solution
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/service/service-details">
-                      Cybersecurity & Compliance
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/service/service-details">
-                      Software Development
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/service/service-details">
-                      It Consulting & Support
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-lg col-md-6 col-12">
-              <div className="single-footer-items">
-                <h3>Useful Links</h3>
-
-                <ul className="menu-list">
-                  <li>
-                    <Link to="/about">About Us </Link>
-                  </li>
-                  <li>
-                    <Link to="/service">Our Services</Link>
-                  </li>
-                  <li>
-                    <Link to="/blog">Blog & News</Link>
-                  </li>
-                  <li>
-                    <Link to="/project">Project</Link>
-                  </li>
-                  <li>
-                    <Link to="/contact">Contact Us</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="col-lg-3 col-md-6 col-12">
-              <div className="single-footer-items">
-                <h3>Contact Us</h3>
-
-                <div className="contact-box">
-                  <div className="icon">
-                    <img src="/assets/img/icons/footer1-icon1.png" alt="" />
-                  </div>
-                  <div className="pera">
-                    <a href="tel:0500222333">0500 222 333</a>
-                  </div>
-                </div>
-
-                <div className="contact-box">
-                  <div className="icon">
-                    <img src="/assets/img/icons/footer1-icon2.png" alt="" />
-                  </div>
-                  <div className="pera">
-                    <a href="tel:0356588547">03 5658 8547</a>
-                  </div>
-                </div>
-
-                <div className="contact-box">
-                  <div className="icon">
-                    <img src="/assets/img/icons/footer1-icon3.png" alt="" />
-                  </div>
-                  <div className="pera">
-                    <a href="mailto:admin@Kiggla.org">admin@Kiggla.org</a>
-                  </div>
-                </div>
-
-                <div className="contact-box">
-                  <div className="icon">
-                    <img src="/assets/img/icons/footer1-icon4.png" alt="" />
-                  </div>
-                  <div className="pera">
-                    <a href="mailto:admin@Kiggla.org">www.Kiggla.org</a>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-
-          <div className="space70"></div>
         </div>
 
-        <div className="copyright-area _relative">
-          <div className="container">
-            <div className="row align-items-center">
-              <div className="col-md-5">
-                <div className="coppyright">
-                  <p>Copyright @2025 Kiggla.All Rights Reserved</p>
-                </div>
-              </div>
-              <div className="col-md-7">
-                <div className="coppyright right-area">
-                  <a href="#">Terms & Conditions</a>
-                  <a href="#">Privacy Policy</a>
-                </div>
-              </div>
-            </div>
+        {/* Bottom Section: Copyright & Developer Credit */}
+        <div className="tw-pt-8 tw-text-center">
+          <div className="tw-text-base tw-text-gray-500 tw-flex tw-flex-col md:tw-flex-row tw-items-center tw-justify-center tw-space-y-2 md:tw-space-y-0 md:tw-space-x-4">
+            <p className="tw-mb-0">
+              © {currentYear} Kiggla. All rights reserved.
+            </p>
+            <span className="tw-hidden md:tw-block">|</span>
+            <p className="tw-mb-0">
+              Designed and developed by{' '}
+              <a
+                href="https://www.leanitech.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:tw-text-primary"
+              >
+                Leanitech
+              </a>
+            </p>
           </div>
-
-          <a href="#" className="arrow-up">
-            <i className="bi bi-arrow-up"></i>
-          </a>
         </div>
+
+        {/* Back to Top Arrow */}
+        <a
+          href="#"
+          className="transition-colors tw-fixed tw-bottom-6 tw-right-6 tw-inline-flex tw-items-center tw-justify-center tw-w-10 tw-h-10 tw-rounded-full tw-bg-gray-800 hover:tw-bg-primary"
+        >
+          <FaArrowUp className="tw-text-lg tw-text-white" />
+        </a>
       </div>
-    </div>
+    </footer>
   );
 };
 

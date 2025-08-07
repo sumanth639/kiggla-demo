@@ -49,18 +49,18 @@ const AboutUs = () => {
           <h3 className="tw-text-3xl tw-font-bold tw-text-text">
             Empowering Your Digital Journey
           </h3>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted">
+          <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
             Our mission is to be the catalyst for your digital transformation.
             We empower businesses and individuals with cutting-edge technology
             that drives growth, enhances efficiency, and redefines what's
-            possible. By blending innovation with a deep understanding of your
-            needs, we build bespoke solutions that are not only effective but
-            also intuitive, scalable, and sustainable.
+            possible.
           </p>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted">
-            We are dedicated to building a future where technology is an
-            accessible tool for everyone, fostering a landscape of endless
-            creativity and opportunity.
+          <p className="tw-mt-4 tw-text-lg tw-text-muted ">
+            By blending innovation with a deep understanding of your needs, we
+            build bespoke solutions that are not only effective but also
+            intuitive, scalable, and sustainable. We are dedicated to building a
+            future where technology is an accessible tool for everyone,
+            fostering a landscape of endless creativity and opportunity.
           </p>
         </>
       ),
@@ -73,15 +73,15 @@ const AboutUs = () => {
           <h3 className="tw-text-3xl tw-font-bold tw-text-text">
             A More Connected and Intelligent World
           </h3>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted">
+          <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
             We envision a future where technology is a seamless extension of
             human potential, fostering a more connected, intelligent, and
-            accessible world. Our goal is to lead the way in creating solutions
-            that break down barriers, connect communities, and make complex
-            problems simple.
+            accessible world.
           </p>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted">
-            We are committed to pioneering the next generation of digital tools
+          <p className="tw-mt-4 tw-text-lg tw-text-muted ">
+            Our goal is to lead the way in creating solutions that break down
+            barriers, connect communities, and make complex problems simple. We
+            are committed to pioneering the next generation of digital tools
             that will shape a brighter, more integrated tomorrow for businesses
             and individuals alike.
           </p>
@@ -96,19 +96,17 @@ const AboutUs = () => {
           <h3 className="tw-text-3xl tw-font-bold tw-text-text">
             A Legacy of Passion and Innovation
           </h3>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted">
+          <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
             Kiggla was founded with a simple yet powerful idea: to make a
             difference through technology. What began as a small, passionate
-            team has grown into a global community of innovators,
-            problem-solvers, and creatives. We've spent decades honing our
-            craft, driven by a relentless commitment to excellence and a passion
-            for pushing boundaries.
+            team has grown into a global community of innovators.
           </p>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted">
-            Our journey is a testament to the belief that great ideas, combined
-            with hard work and integrity, can create a lasting legacy of trust
-            and innovation. We're proud of our past and excited to build the
-            future with you.
+          <p className="tw-mt-4 tw-text-lg tw-text-muted ">
+            We've spent decades honing our craft, driven by a relentless
+            commitment to excellence and a passion for pushing boundaries. Our
+            journey is a testament to the belief that great ideas, combined with
+            hard work and integrity, can create a lasting legacy of trust and
+            innovation.
           </p>
         </>
       ),
@@ -151,7 +149,7 @@ const AboutUs = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
         >
-          {/* Staggered Image Grid with 3 smaller columns (3, 3, 2 images) */}
+          {/* Staggered Image Grid with 3 smaller columns */}
           <motion.div
             className="tw-w-full lg:tw-w-1/2 tw-flex tw-gap-4 tw-flex-grow"
             variants={itemVariants}
@@ -185,7 +183,7 @@ const AboutUs = () => {
 
             {/* Column 2 (3 images) */}
             <motion.div
-              className="tw-flex tw-flex-col tw-gap-4 tw-w-1/3 tw-mt-8 sm:tw-mt-12 tw-transition-transform tw-duration-1000"
+              className="tw-flex tw-flex-col tw-gap-4 tw-w-1/3 tw-transition-transform tw-duration-1000 tw-mt-4"
               animate={{ y: -transformY }}
             >
               {[...Array(3)].map((_, i) => (
@@ -213,7 +211,7 @@ const AboutUs = () => {
 
             {/* Column 3 (2 images) */}
             <motion.div
-              className="tw-flex tw-flex-col tw-gap-4 tw-w-1/3 tw-mt-[8rem] sm:tw-mt-[10rem] lg:tw-mt-[12rem] tw-transition-transform tw-duration-1000"
+              className="tw-flex tw-flex-col tw-gap-4 tw-w-1/3 tw-transition-transform tw-duration-1000 tw-mt-8 lg:tw-mt-12"
               animate={{ y: transformY }}
             >
               {[...Array(2)].map((_, i) => (
