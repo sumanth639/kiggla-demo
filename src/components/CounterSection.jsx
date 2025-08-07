@@ -35,10 +35,9 @@ const CountUp = ({ end, duration = 2000, startCounting }) => {
   return <span>{count.toLocaleString()}</span>;
 };
 
-// Gets an image from picsum.photos based on an index
 const getCardImage = (index) => {
-  const seed = 1234 + index;
-  return `https://picsum.photos/seed/${seed}/500/500`;
+  const id = index + 1;
+  return `/assets/img/kiggla/counter/img-${id}.jpg`;
 };
 
 const CounterSection = () => {
@@ -170,28 +169,34 @@ const CounterSection = () => {
                   ></div>
                   <div className="tw-relative tw-z-10 tw-p-6 tw-h-full tw-flex tw-flex-col tw-justify-between">
                     <div className="tw-flex-grow tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
-                      {/* FIX: The metric text now changes color based on active state */}
                       <div
-                        className={`tw-text-sm tw-font-bold tw-uppercase tw-tracking-wider tw-transition-colors tw-duration-500 ${
-                          isActive ? 'tw-text-background' : 'tw-text-primary'
+                        className={`tw-absolute tw-inset-0 tw-bg-black/50 tw-backdrop-blur-sm tw-transition-opacity tw-duration-500 ${
+                          isActive ? 'tw-opacity-100' : 'tw-opacity-0'
                         }`}
-                      >
-                        {stat.metric}
-                      </div>
-                      <div
-                        className={`tw-mt-2 tw-text-4xl md:tw-text-5xl tw-font-black tw-transition-all tw-duration-500 tw-text-background`}
-                      >
-                        <CountUp
-                          end={stat.number}
-                          startCounting={inView && isActive}
-                          duration={2000}
-                        />
-                        {stat.suffix}
-                      </div>
-                      <div
-                        className={`tw-mt-1 tw-text-sm tw-font-medium tw-leading-tight tw-transition-colors tw-duration-500 tw-text-background`}
-                      >
-                        {stat.label}
+                      ></div>
+                      <div className="tw-relative tw-z-20">
+                        <div
+                          className={`tw-text-sm tw-font-bold tw-uppercase tw-tracking-wider tw-transition-colors tw-duration-500 ${
+                            isActive ? 'tw-text-white' : 'tw-text-primary'
+                          }`}
+                        >
+                          {stat.metric}
+                        </div>
+                        <div
+                          className={`tw-mt-2 tw-text-4xl md:tw-text-5xl tw-font-black tw-transition-all tw-duration-500 tw-text-white`}
+                        >
+                          <CountUp
+                            end={stat.number}
+                            startCounting={inView && isActive}
+                            duration={2000}
+                          />
+                          {stat.suffix}
+                        </div>
+                        <div
+                          className={`tw-mt-1 tw-text-sm tw-font-medium tw-leading-tight tw-transition-colors tw-duration-500 tw-text-white`}
+                        >
+                          {stat.label}
+                        </div>
                       </div>
                     </div>
                   </div>

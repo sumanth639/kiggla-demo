@@ -1,6 +1,17 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
+const image = [
+  '/assets/img/kiggla/about/img-1.jpg',
+  '/assets/img/kiggla/about/img-2.jpg',
+  '/assets/img/kiggla/about/img-3.jpg',
+  '/assets/img/kiggla/about/img-4.jpg',
+  '/assets/img/kiggla/about/img-5.jpg',
+  '/assets/img/kiggla/about/img-6.jpg',
+  '/assets/img/kiggla/about/img-7.jpg',
+  '/assets/img/kiggla/about/img-8.jpg',
+];
+
 const AboutUs = () => {
   const [activeTab, setActiveTab] = useState('mission');
   const [activeColumnImage, setActiveColumnImage] = useState({
@@ -49,6 +60,7 @@ const AboutUs = () => {
           <h3 className="tw-text-3xl tw-font-bold tw-text-text">
             Empowering Your Digital Journey
           </h3>
+
           <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
             Our mission is to be the catalyst for your digital transformation.
             We empower businesses and individuals with cutting-edge technology
@@ -165,7 +177,7 @@ const AboutUs = () => {
                   className="tw-relative tw-w-full tw-aspect-square tw-rounded-2xl tw-overflow-hidden tw-shadow-xl tw-cursor-pointer group"
                 >
                   <motion.img
-                    src={`https://picsum.photos/seed/kiggla-img-${i}/400/400`}
+                    src={image[i]} // Use the image array
                     alt={`Image ${i + 1}`}
                     className={`tw-absolute tw-inset-0 tw-w-full tw-h-full tw-object-cover tw-transition-all tw-duration-1000 ${
                       activeColumnImage.col1 !== i ? 'tw-grayscale' : ''
@@ -192,9 +204,7 @@ const AboutUs = () => {
                   className="tw-relative tw-w-full tw-aspect-square tw-rounded-2xl tw-overflow-hidden tw-shadow-xl tw-cursor-pointer group"
                 >
                   <motion.img
-                    src={`https://picsum.photos/seed/kiggla-img-${
-                      i + 3
-                    }/400/400`}
+                    src={image[i + 3]} // Use the image array
                     alt={`Image ${i + 4}`}
                     className={`tw-absolute tw-inset-0 tw-w-full tw-h-full tw-object-cover tw-transition-all tw-duration-1000 ${
                       activeColumnImage.col2 !== i + 3 ? 'tw-grayscale' : ''
@@ -220,9 +230,7 @@ const AboutUs = () => {
                   className="tw-relative tw-w-full tw-aspect-square tw-rounded-2xl tw-overflow-hidden tw-shadow-xl tw-cursor-pointer group"
                 >
                   <motion.img
-                    src={`https://picsum.photos/seed/kiggla-img-${
-                      i + 6
-                    }/400/400`}
+                    src={image[i + 6]} // Use the image array
                     alt={`Image ${i + 7}`}
                     className={`tw-absolute tw-inset-0 tw-w-full tw-h-full tw-object-cover tw-transition-all tw-duration-1000 ${
                       activeColumnImage.col3 !== i + 6 ? 'tw-grayscale' : ''

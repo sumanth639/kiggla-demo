@@ -1,77 +1,65 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaArrowRight } from 'react-icons/fa';
 
 const services = [
   {
     title: 'Cloud Solutions',
     description:
       'From migration to management, we handle your cloud infrastructure to ensure scalability and security.',
-    imageUrl: 'https://picsum.photos/seed/service1/300/300',
-    link: '/service/service-details',
+    imageUrl: '/assets/img/kiggla/services/img-1.jpg',
   },
   {
     title: 'Software Development',
     description:
       'We build custom software, web applications, and mobile apps tailored to your unique business needs.',
-    imageUrl: 'https://picsum.photos/seed/service2/300/300',
-    link: '/service/service-details',
+    imageUrl: '/assets/img/kiggla/services/img-7.jpg',
   },
   {
     title: 'Mobile App Development',
     description:
       'Crafting intuitive and high-performance mobile experiences for iOS and Android platforms.',
-    imageUrl: 'https://picsum.photos/seed/service3/300/300',
-    link: '/service/service-details',
+    imageUrl: '/assets/img/kiggla/services/img-10.jpg',
   },
   {
     title: 'Data Analytics',
     description:
       'Turning raw data into actionable insights with powerful visualization and predictive analytics.',
-    imageUrl: 'https://picsum.photos/seed/service4/300/300',
-    link: '/service/service-details',
+    imageUrl: '/assets/img/kiggla/services/img-4.jpg',
   },
   {
     title: 'Cyber Security',
     description:
       'Protecting your digital assets with robust security strategies, threat detection, and risk management.',
-    imageUrl: 'https://picsum.photos/seed/service5/300/300',
-    link: '/service/service-details',
+    imageUrl: '/assets/img/kiggla/services/img-5.jpg',
   },
   {
     title: 'Managed IT Services',
     description:
       'Proactive IT support and maintenance to keep your systems running smoothly and efficiently.',
-    imageUrl: 'https://picsum.photos/seed/service6/300/300',
-    link: '/service/service-details',
+    imageUrl: '/assets/img/kiggla/services/img-6.jpg',
   },
   {
     title: 'DevOps & Automation',
     description:
       'Streamline your development pipeline with CI/CD, infrastructure as code, and automated testing.',
-    imageUrl: 'https://picsum.photos/seed/service7/300/300',
-    link: '/service/service-details',
+    imageUrl: '/assets/img/kiggla/services/img-2.jpg',
   },
   {
     title: 'Digital Transformation',
     description:
       'Guide your business through digital evolution with strategy, technology adoption, and process optimization.',
-    imageUrl: 'https://picsum.photos/seed/service8/300/300',
-    link: '/service/service-details',
+    imageUrl: '/assets/img/kiggla/services/img-9.jpg',
   },
   {
     title: 'AI & Machine Learning',
     description:
       'Harness the power of artificial intelligence to automate processes, predict outcomes, and drive innovation.',
-    imageUrl: 'https://picsum.photos/seed/service9/300/300',
-    link: '/service/service-details',
+    imageUrl: '/assets/img/kiggla/services/img-8.jpg',
   },
   {
     title: 'E-commerce Solutions',
     description:
       'Build powerful online stores and marketplaces that drive sales and enhance customer experience.',
-    imageUrl: 'https://picsum.photos/seed/service10/300/300',
-    link: '/service/service-details',
+    imageUrl: '/assets/img/kiggla/services/img-3.jpg',
   },
 ];
 
@@ -139,31 +127,23 @@ const Services = () => {
               variants={itemVariants}
             >
               <div className="tw-relative tw-w-full tw-h-full">
-                {/* Background Image Overlay */}
+                {/* Background Image with Blur Effect on Hover */}
                 <div
-                  className="tw-absolute tw-inset-0 tw-bg-cover tw-bg-center tw-transition-all tw-duration-500 tw-ease-in-out group-hover:tw-grayscale-0 group-hover:tw-scale-110"
+                  className="tw-absolute tw-inset-0 tw-bg-cover tw-bg-center tw-transition-all tw-duration-500 tw-ease-in-out group-hover:tw-scale-110 group-hover:tw-blur-xl"
                   style={{ backgroundImage: `url(${service.imageUrl})` }}
                 ></div>
 
                 {/* Dark Overlay for Readability */}
                 <div className="tw-absolute tw-inset-0 tw-bg-gradient-to-b tw-from-black/60 tw-via-black/70 tw-to-black/90 tw-transition-all tw-duration-300 group-hover:tw-from-black/40 group-hover:tw-via-black/50 group-hover:tw-to-black/70"></div>
 
-                {/* Content Container - hidden by default, visible on hover */}
-                <div className="tw-absolute tw-inset-0 tw-flex tw-flex-col tw-items-center tw-justify-center tw-p-3 tw-text-center tw-text-white tw-opacity-0 tw-transition-opacity tw-duration-300 group-hover:tw-opacity-100 tw-overflow-y-auto">
+                {/* Content Container with slide-in animation */}
+                <div className="tw-absolute tw-inset-0 tw-p-3 tw-text-center tw-text-white tw-overflow-y-auto tw-flex tw-flex-col tw-justify-center tw-transform tw-translate-y-full tw-transition-transform tw-duration-500 tw-ease-out group-hover:tw-translate-y-0">
                   <h3 className="tw-text-lg tw-font-bold tw-mb-2 tw-text-white">
                     {service.title}
                   </h3>
-                  <p className="tw-text-xs tw-font-light tw-leading-relaxed tw-mb-3 tw-text-gray-200">
+                  <p className="tw-text-xs tw-font-light tw-leading-relaxed tw-text-gray-200">
                     {service.description}
                   </p>
-
-                  <Link
-                    to={service.link}
-                    className="tw-inline-flex tw-items-center tw-bg-primary tw-text-white tw-px-3 tw-py-2 tw-rounded-full tw-font-semibold tw-text-xs tw-transition-all tw-duration-300 hover:tw-bg-primary/80 hover:tw-scale-105"
-                  >
-                    Learn More
-                    <FaArrowRight className="tw-ml-2 tw-text-xs tw-transition-transform tw-duration-300 group-hover:tw-translate-x-1" />
-                  </Link>
                 </div>
 
                 {/* Title for non-hovered state */}

@@ -5,61 +5,61 @@ const industries = [
     title: 'Travel & Hospitality',
     description:
       'Transforming guest experiences with smart booking systems, personalized services, and seamless digital journeys.',
-    imageUrl: 'https://picsum.photos/seed/travel/100/100',
+    imageUrl: '/assets/img/kiggla/industry/img-1.jpg',
   },
   {
     title: 'Public Sector',
     description:
       'Modernizing government services with digital platforms, citizen engagement tools, and efficient administratives',
-    imageUrl: 'https://picsum.photos/seed/government/100/100',
+    imageUrl: '/assets/img/kiggla/industry/img-2.jpg',
   },
   {
     title: 'Telecommunication',
     description:
       'Enhancing network operations, customer service platforms, and next-generation communication technologies.',
-    imageUrl: 'https://picsum.photos/seed/telecom/100/100',
+    imageUrl: '/assets/img/kiggla/industry/img-3.jpg',
   },
   {
     title: 'Retail & CPG',
     description:
       'Revolutionizing shopping experiences with omnichannel solutions, inventory management, and customer insights.',
-    imageUrl: 'https://picsum.photos/seed/retail/100/100',
+    imageUrl: '/assets/img/kiggla/industry/img-4.jpg',
   },
   {
     title: 'Oil, Gas, and Energy',
     description:
       'Optimizing operations with IoT solutions, predictive maintenance, and sustainable energy management systems.',
-    imageUrl: 'https://picsum.photos/seed/energy/100/100',
+    imageUrl: '/assets/img/kiggla/industry/img-5.jpg',
   },
   {
     title: 'Startups',
     description:
       'Accelerating growth with MVP development, scalable architectures, and rapid prototyping solutions.',
-    imageUrl: 'https://picsum.photos/seed/startup/100/100',
+    imageUrl: '/assets/img/kiggla/industry/img-6.jpg',
   },
   {
     title: 'E-commerce',
     description:
       'Building powerful online platforms with secure payments, inventory systems, and personalized shopping experiences.',
-    imageUrl: 'https://picsum.photos/seed/ecommerce/100/100',
+    imageUrl: '/assets/img/kiggla/industry/img-7.jpg',
   },
   {
     title: 'Banking & Fintech',
     description:
       'Creating secure financial solutions with digital banking, payment processing, and compliance management.',
-    imageUrl: 'https://picsum.photos/seed/fintech/100/100',
+    imageUrl: '/assets/img/kiggla/industry/img-8.jpg',
   },
   {
     title: 'Healthcare & Pharmaceuticals',
     description:
       'Improving patient care with telemedicine platforms, health records systems, and clinical research tools.',
-    imageUrl: 'https://picsum.photos/seed/healthcare/100/100',
+    imageUrl: '/assets/img/kiggla/industry/img-9.jpg',
   },
   {
     title: 'Gaming',
     description:
       'Crafting immersive gaming experiences with real-time multiplayer, analytics, and monetization platforms.',
-    imageUrl: 'https://picsum.photos/seed/gaming/100/100',
+    imageUrl: '/assets/img/kiggla/industry/img-10.jpg',
   },
 ];
 
