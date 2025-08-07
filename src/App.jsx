@@ -8,6 +8,7 @@ import ContactForm from './components/ContactForm';
 import Marquee from './components/Marquee';
 import FAQSection from './components/FAQSection';
 import TeamSection from './components/TeamSection';
+import IndustryImpact from './components/IndustryImpact';
 const App = () => {
   return (
     <div>
@@ -19,6 +20,7 @@ const App = () => {
       <div id="about-us">
         <AboutUs />
       </div>
+      <IndustryImpact />
       <TeamSection />
       <div id="services">
         <Services />
