@@ -20,6 +20,7 @@
     --color-primary: #63d095;
     --color-secondary: #4c82c1;
     --color-background: #0d1117;
+
     --color-text: #f8fafc;
     --color-muted: #a0a7b1;
     --color-card: #161b22;
@@ -32,23 +33,10 @@
   }
 }
 
-html {
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-/* Custom CSS for the new RippleButton component */
-.tw-ripple-btn-new {
-  position: relative;
-  overflow: hidden;
-}
-
-.ripple-effect-span {
-  position: absolute;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.7);
-  transform: scale(0);
-  animation: ripple 0.6s linear;
 }
 
 @keyframes ripple {
@@ -57,8 +45,6 @@ html {
     opacity: 0;
   }
 }
-
-/* ... keep other custom CSS here, like for the mobile toggle ... */
 
 /* Mobile Toggle Hamburger Animation */
 .tw-cs-toggle_active span {
@@ -101,53 +87,44 @@ html {
   transition-duration: 0.2s;
   transition-delay: 0.2s, 0s;
 }
-/* New bracket button hover effect */
-.btn--bracket-effect {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  z-index: 1; /* Ensure button content is above the pseudo-elements */
+
+/* Marquee Animations */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-/* This creates the two bracket lines */
-.btn--bracket-effect::before,
-.btn--bracket-effect::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  height: 2px;
-  background-color: var(
-    --ztc-text-text-2
-  ); /* Use a white color for visibility */
-  width: 0;
-  transition: width 0.3s ease-out;
-  z-index: -1;
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
-.btn--bracket-effect::before {
-  left: 50%;
-  transform: translateX(-50%);
+.marquee-row-1 {
+  animation: marqueeLeft 40s linear infinite;
 }
 
-.btn--bracket-effect::after {
-  right: 50%;
-  transform: translateX(50%);
+.marquee-row-2 {
+  animation: marqueeRight 45s linear infinite;
 }
 
-.btn--bracket-effect:hover::before,
-.btn--bracket-effect:hover::after {
-  width: 50%; /* This expands the brackets from the center */
+@media (max-width: 768px) {
+  .marquee-row-1 {
+    animation-duration: 25s;
+  }
+  .marquee-row-2 {
+    animation-duration: 28s;
+  }
 }
 
-/* Add other base styles for the button for consistency */
-.btn--bracket-effect {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  background-color: var(--ztc-bg-main-bg-1);
-  color: var(--ztc-text-text-2);
-  font-weight: bold;
-  padding: 18px 32px;
-  text-decoration: none;
+.marquee-row-1:hover,
+.marquee-row-2:hover {
+  animation-play-state: paused;
 }

@@ -15,6 +15,7 @@ export default {
 
         // Base colors for text, background, cards, and borders
         background: 'var(--color-background)',
+
         card: 'var(--color-card)',
         text: 'var(--color-text)',
         muted: 'var(--color-muted)',
