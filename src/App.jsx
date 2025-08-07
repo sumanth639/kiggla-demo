@@ -7,6 +7,7 @@ import CounterSection from './components/CounterSection';
 import ContactForm from './components/ContactForm';
 import Marquee from './components/Marquee';
 import FAQSection from './components/FAQSection';
+import TeamSection from './components/TeamSection';
 const App = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const App = () => {
       <div id="about-us">
         <AboutUs />
       </div>
+      <TeamSection />
       <div id="services">
         <Services />
       </div>
