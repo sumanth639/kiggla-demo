@@ -5,10 +5,10 @@ const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const backgroundImages = [
-    '/assets/img/kiggla/hero-1.jpg',
-    '/assets/img/kiggla/hero-2.jpg',
-    '/assets/img/kiggla/hero-3.jpg',
-    '/assets/img/kiggla/hero-4.jpg',
+    '/assets/img/kiggla/hero-1.webp',
+    '/assets/img/kiggla/hero-2.webp',
+    '/assets/img/kiggla/hero-3.webp',
+    '/assets/img/kiggla/hero-4.webp',
   ];
 
   useEffect(() => {
@@ -77,20 +77,21 @@ const HeroSection = () => {
           <div className="tw-flex tw-flex-col tw-justify-center tw-space-y-8 tw-flex-1 tw-text-center md:tw-text-left">
             <motion.div variants={itemVariants}>
               <p className="tw-text-white tw-text-sm tw-font-light tw-uppercase tw-tracking-[0.2em] tw-mb-4">
-                Enterprise & Cloud
+                IT Consulting Experts
               </p>
               <h1 className="tw-text-5xl sm:tw-text-6xl md:tw-text-7xl tw-font-bold tw-leading-tight tw-tracking-tight tw-text-white">
-                Accelerate <br />
-                Your Vision.
+                Transform <br />
+                Your Digital Future.
               </h1>
             </motion.div>
             <motion.div variants={itemVariants}>
               <p className="tw-max-w-md tw-text-lg tw-font-extralight tw-leading-relaxed tw-text-white tw-mx-auto md:tw-mx-0">
-                We empower businesses with bespoke technology solutions,
-                providing the tools and support to thrive in the digital age.
+                We help businesses navigate complexity and embrace innovation
+                through tailored IT consulting solutions that drive growth,
+                security, and scalability.
               </p>
             </motion.div>
-            <motion.div
+            {/*      <motion.div
               variants={itemVariants}
               className="tw-flex tw-flex-col sm:tw-flex-row tw-gap-4 tw-pt-4 tw-justify-center md:tw-justify-start"
             >
@@ -100,7 +101,7 @@ const HeroSection = () => {
               <button className="tw-px-8 tw-py-4 tw-text-base tw-font-light tw-text-white tw-border tw-border-primary tw-rounded-full tw-transition-all tw-duration-300 hover:tw-scale-105 hover:tw-bg-primary/10 tw-backdrop-blur-sm">
                 Get a Quote
               </button>
-            </motion.div>
+            </motion.div> */}
           </div>
           {/* Frosted Glass Info Card */}
           <motion.div
@@ -111,23 +112,23 @@ const HeroSection = () => {
               <h3 className="tw-text-xl sm:tw-text-2xl tw-font-semibold tw-mb-4">
                 Our Core Expertise
               </h3>
-              <p className="tw-text-muted tw-text-sm tw-mb-6">
-                Our team provides end-to-end support, from initial strategy to
-                ongoing maintenance, ensuring your technology infrastructure is
-                robust and future-proof.
+              <p className="tw-text-gray-300 tw-text-sm tw-mb-6">
+                From cloud infrastructure and cybersecurity to AI integration
+                and digital transformation, Kiggla provides strategic IT
+                consulting that adapts to your goals and industry challenges.
               </p>
               <ul className="tw-space-y-3">
-                <li className="tw-flex tw-items-center tw-text-sm tw-font-light tw-text-muted">
+                <li className="tw-flex tw-items-center tw-text-sm tw-font-light tw-text-gray-200">
                   <span className="tw-w-2 tw-h-2 tw-bg-primary tw-rounded-full tw-mr-3"></span>
-                  Advanced Security Protocols
+                  Cloud Strategy & Migration
                 </li>
-                <li className="tw-flex tw-items-center tw-text-sm tw-font-light tw-text-muted">
+                <li className="tw-flex tw-items-center tw-text-sm tw-font-light tw-text-gray-200">
                   <span className="tw-w-2 tw-h-2 tw-bg-primary tw-rounded-full tw-mr-3"></span>
-                  Dedicated 24/7 Support
+                  Cybersecurity & Compliance
                 </li>
-                <li className="tw-flex tw-items-center tw-text-sm tw-font-light tw-text-muted">
+                <li className="tw-flex tw-items-center tw-text-sm tw-font-light tw-text-gray-200">
                   <span className="tw-w-2 tw-h-2 tw-bg-primary tw-rounded-full tw-mr-3"></span>
-                  Seamless Integration
+                  AI & Data-Driven Solutions and many more.
                 </li>
               </ul>
               <motion.button

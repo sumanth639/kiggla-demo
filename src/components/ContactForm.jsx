@@ -351,21 +351,23 @@ const ContactForm = () => {
                   />
                 </div>
                 {/* Submit Button */}
-                <div className="tw-pt-4">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="tw-w-full tw-bg-primary tw-text-white tw-font-bold tw-py-4 tw-px-8 tw-rounded-xl tw-text-lg tw-transition-all tw-duration-300 hover:tw-bg-primary/90 hover:tw-shadow-lg hover:tw-shadow-primary/25 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transform hover:tw-scale-[1.01] active:tw-scale-[0.99]"
-                  >
-                    {isSubmitting ? (
-                      <div className="tw-flex tw-items-center tw-justify-center tw-gap-3">
-                        <div className="tw-w-5 tw-h-5 tw-border-2 tw-border-white/30 tw-border-t-white tw-rounded-full tw-animate-spin" />
-                        Sending Message...
-                      </div>
-                    ) : (
-                      'Send Message'
-                    )}
-                  </button>
+                <div className=" tw-flex tw-justify-center">
+                  <div className="tw-pt-4">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="tw-bg-primary tw-text-white tw-font-bold tw-py-4 tw-px-8 tw-rounded-full tw-text-lg tw-transition-all tw-duration-300 hover:tw-bg-secondary hover:tw-shadow-lg hover:tw-shadow-primary/25 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-transform hover:tw-scale-[1.01] active:tw-scale-[0.99]"
+                    >
+                      {isSubmitting ? (
+                        <div className="tw-flex tw-items-center tw-justify-center tw-gap-3">
+                          <div className="tw-w-5 tw-h-5 tw-border-2 tw-border-white/30 tw-border-t-white tw-rounded-full tw-animate-spin" />
+                          Sending Message...
+                        </div>
+                      ) : (
+                        'Send Message'
+                      )}
+                    </button>
+                  </div>
                 </div>
                 <p className="tw-text-sm tw-text-muted tw-text-center tw-mt-4">
                   We respect your privacy and will never share your information

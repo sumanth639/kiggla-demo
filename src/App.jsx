@@ -1,35 +1,15 @@
-import AboutUs from './components/About-Us';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import HeroSection from './components/Hero';
-import Services from './components/Services';
-import CounterSection from './components/CounterSection';
-import ContactForm from './components/ContactForm';
-import Marquee from './components/Marquee';
-import FAQSection from './components/FAQSection';
-import TeamSection from './components/TeamSection';
-import IndustryImpact from './components/IndustryImpact';
+import { Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage';
+
 const App = () => {
   return (
-    <div>
-      <Header />
-      <div id="home">
-        <HeroSection />
-      </div>
-      <Marquee />
-      <div id="about-us">
-        <AboutUs />
-      </div>
-      <IndustryImpact />
-      <TeamSection />
-      <div id="services">
-        <Services />
-      </div>
-      <CounterSection />
-      <ContactForm />
-      <FAQSection />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
+    </Routes>
   );
 };
 

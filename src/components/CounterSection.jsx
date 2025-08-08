@@ -105,12 +105,12 @@ const CounterSection = () => {
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Driving Global Success Stories
+                Empowering Global Digital Transformation
               </motion.h2>
               <p className="tw-text-base md:tw-text-lg tw-text-muted tw-leading-relaxed tw-max-w-lg tw-mx-auto md:tw-mx-0">
-                At Kiggla, our numbers tell the story of innovation, dedication,
-                and the trust our clients place in us to deliver exceptional
-                results across the globe.
+                At Kiggla, our numbers reflect a legacy of delivering secure,
+                scalable, and transformative IT solutions that drive real
+                business impact across industries.
               </p>
             </div>
             {/* Centered on mobile, left-aligned on md and up */}

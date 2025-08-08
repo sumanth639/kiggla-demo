@@ -12,14 +12,34 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const teamMembers = [
-  { name: 'Jane Doe', role: 'Lead Developer', imageSeed: 'person1' },
-  { name: 'John Smith', role: 'UI/UX Designer', imageSeed: 'person2' },
-  { name: 'Emily Chen', role: 'Marketing Manager', imageSeed: 'person3' },
-  { name: 'Michael Brown', role: 'Project Manager', imageSeed: 'person4' },
-  { name: 'Sarah Wilson', role: 'Data Scientist', imageSeed: 'person5' },
-  { name: 'David Lee', role: 'Cloud Engineer', imageSeed: 'person6' },
-  { name: 'Olivia Martinez', role: 'Product Strategist', imageSeed: 'person7' },
-  { name: 'Chris Evans', role: 'Customer Success', imageSeed: 'person8' },
+  { name: 'Jane Doe', role: 'Solutions Architect', imageSeed: 'person1' },
+  { name: 'Olivia Martinez', role: 'UX/UI Specialist', imageSeed: 'person2' },
+  {
+    name: 'John Smith',
+    role: 'Digital Strategy Consultant',
+    imageSeed: 'person3',
+  },
+  {
+    name: 'Michael Brown',
+    role: 'Technology Delivery Manager',
+    imageSeed: 'person4',
+  },
+  {
+    name: 'Jobin Thomas',
+    role: 'Cybersecurity Consultant',
+    imageSeed: 'person5',
+  },
+  {
+    name: 'David Lee',
+    role: 'Cloud Infrastructure Engineer',
+    imageSeed: 'person6',
+  },
+  {
+    name: 'Emily Chen',
+    role: 'Enterprise IT Advisor',
+    imageSeed: 'person7',
+  },
+  { name: 'Chris Evans', role: 'Client Engagement Lead', imageSeed: 'person8' },
 ];
 
 const TeamSlider = () => {

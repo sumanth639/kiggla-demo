@@ -58,44 +58,42 @@ const AboutUs = () => {
       content: (
         <>
           <h3 className="tw-text-3xl tw-font-bold tw-text-text">
-            Empowering Your Digital Journey
+            Empowering Digital Growth, One Solution at a Time
           </h3>
 
           <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
-            Our mission is to be the catalyst for your digital transformation.
-            We empower businesses and individuals with cutting-edge technology
-            that drives growth, enhances efficiency, and redefines what's
-            possible.
+            At Kiggla, our mission is to bridge the gap between cutting-edge
+            technology and real business outcomes. We help organizations of all
+            sizes unlock their full potential through strategic IT consulting,
+            intelligent solutions, and ongoing support.
           </p>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted ">
-            By blending innovation with a deep understanding of your needs, we
-            build bespoke solutions that are not only effective but also
-            intuitive, scalable, and sustainable. We are dedicated to building a
-            future where technology is an accessible tool for everyone,
-            fostering a landscape of endless creativity and opportunity.
+          <p className="tw-mt-4 tw-text-lg tw-text-muted">
+            We’re committed to creating customized, scalable, and secure systems
+            that empower businesses to innovate faster, adapt smarter, and grow
+            sustainably in an ever-evolving digital landscape.
           </p>
         </>
       ),
     },
+
     {
       id: 'vision',
       label: 'Our Vision',
       content: (
         <>
           <h3 className="tw-text-3xl tw-font-bold tw-text-text">
-            A More Connected and Intelligent World
+            A Future Where Technology Drives Meaningful Change
           </h3>
           <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
-            We envision a future where technology is a seamless extension of
-            human potential, fostering a more connected, intelligent, and
-            accessible world.
+            We envision a world where technology is not a barrier but a
+            bridge—connecting businesses to new opportunities, ideas, and
+            markets with confidence.
           </p>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted ">
-            Our goal is to lead the way in creating solutions that break down
-            barriers, connect communities, and make complex problems simple. We
-            are committed to pioneering the next generation of digital tools
-            that will shape a brighter, more integrated tomorrow for businesses
-            and individuals alike.
+          <p className="tw-mt-4 tw-text-lg tw-text-muted">
+            Our goal is to lead this transformation by providing
+            forward-thinking IT strategies that are human-centered,
+            innovation-driven, and rooted in trust. We strive to be the partner
+            businesses turn to when they’re ready to lead—not follow.
           </p>
         </>
       ),
@@ -106,19 +104,20 @@ const AboutUs = () => {
       content: (
         <>
           <h3 className="tw-text-3xl tw-font-bold tw-text-text">
-            A Legacy of Passion and Innovation
+            Built on Passion. Driven by Innovation.
           </h3>
           <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
-            Kiggla was founded with a simple yet powerful idea: to make a
-            difference through technology. What began as a small, passionate
-            team has grown into a global community of innovators.
+            Kiggla started with a clear purpose—to simplify IT for businesses
+            and make innovation accessible. What began as a small team of tech
+            enthusiasts has grown into a trusted consulting firm serving clients
+            across industries.
           </p>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted ">
-            We've spent decades honing our craft, driven by a relentless
-            commitment to excellence and a passion for pushing boundaries. Our
-            journey is a testament to the belief that great ideas, combined with
-            hard work and integrity, can create a lasting legacy of trust and
-            innovation.
+          <p className="tw-mt-4 tw-text-lg tw-text-muted">
+            Over the years, we’ve helped businesses streamline operations,
+            secure their systems, and embrace next-gen technology with
+            confidence. Our journey reflects our core belief: that with the
+            right technology and guidance, every business can thrive in the
+            digital age.
           </p>
         </>
       ),
@@ -186,7 +185,7 @@ const AboutUs = () => {
                   {/* Hover overlay with text */}
                   <div className="tw-absolute tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-items-center tw-justify-center tw-opacity-0 group-hover:tw-opacity-100 tw-transition-opacity tw-duration-300">
                     <p className="tw-text-white tw-text-center tw-text-sm tw-font-semibold tw-p-2">
-                      Team Member {i + 1}
+                      Consultant {i + 1}
                     </p>
                   </div>
                 </div>

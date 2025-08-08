@@ -35,8 +35,8 @@ const Footer = () => {
               technology solutions tailored to meet the unique needs of
               businesses.
             </p>
-            {/* Follow Us Section Moved Here */}
-            <h4 className="tw-text-xl tw-font-semibold tw-text-white tw-mt-6 tw-mb-4">
+
+            {/*    <h4 className="tw-text-xl tw-font-semibold tw-text-white tw-mt-6 tw-mb-4">
               Follow Us
             </h4>
             <div className="tw-flex tw-space-x-6">
@@ -61,7 +61,7 @@ const Footer = () => {
               >
                 <FaInstagram className="tw-h-6 tw-w-6" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Side: Links & Contact Info */}

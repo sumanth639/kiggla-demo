@@ -2,63 +2,63 @@ import { motion } from 'framer-motion';
 
 const industries = [
   {
-    title: 'Travel & Hospitality',
+    title: 'Startups & SMEs',
     description:
-      'Transforming guest experiences with smart booking systems, personalized services, and seamless digital journeys.',
+      'Empowering early-stage companies with scalable, cost-effective tech solutions to drive rapid innovation.',
     imageUrl: '/assets/img/kiggla/industry/img-1.jpg',
   },
   {
-    title: 'Public Sector',
+    title: 'Enterprise IT',
     description:
-      'Modernizing government services with digital platforms, citizen engagement tools, and efficient administratives',
+      'Optimizing large-scale infrastructure with secure, high-performance, and adaptable enterprise IT systems.',
     imageUrl: '/assets/img/kiggla/industry/img-2.jpg',
   },
   {
-    title: 'Telecommunication',
+    title: 'Healthcare & Life Sciences',
     description:
-      'Enhancing network operations, customer service platforms, and next-generation communication technologies.',
+      'Delivering secure, compliant digital tools to improve care delivery and streamline patient data workflows.',
     imageUrl: '/assets/img/kiggla/industry/img-3.jpg',
   },
   {
-    title: 'Retail & CPG',
+    title: 'Financial Services & FinTech',
     description:
-      'Revolutionizing shopping experiences with omnichannel solutions, inventory management, and customer insights.',
+      'Building secure digital banking platforms with automation, analytics, and full compliance management.',
     imageUrl: '/assets/img/kiggla/industry/img-4.jpg',
   },
   {
-    title: 'Oil, Gas, and Energy',
+    title: 'Retail & E-Commerce',
     description:
-      'Optimizing operations with IoT solutions, predictive maintenance, and sustainable energy management systems.',
+      'Enhancing customer experience with AI, seamless omnichannel integration, and smart inventory control.',
     imageUrl: '/assets/img/kiggla/industry/img-5.jpg',
   },
   {
-    title: 'Startups',
+    title: 'Manufacturing & Logistics',
     description:
-      'Accelerating growth with MVP development, scalable architectures, and rapid prototyping solutions.',
+      'Streamlining operations with IoT, predictive analytics, and supply chain automation at every stage.',
     imageUrl: '/assets/img/kiggla/industry/img-6.jpg',
   },
   {
-    title: 'E-commerce',
+    title: 'Education & E-Learning',
     description:
-      'Building powerful online platforms with secure payments, inventory systems, and personalized shopping experiences.',
+      'Enabling virtual learning with secure platforms, digital classrooms, and modern content delivery tools.',
     imageUrl: '/assets/img/kiggla/industry/img-7.jpg',
   },
   {
-    title: 'Banking & Fintech',
+    title: 'Government & Public Sector',
     description:
-      'Creating secure financial solutions with digital banking, payment processing, and compliance management.',
+      'Improving digital governance with secure platforms for transparency, engagement, and service delivery.',
     imageUrl: '/assets/img/kiggla/industry/img-8.jpg',
   },
   {
-    title: 'Healthcare & Pharmaceuticals',
+    title: 'Real Estate & Construction',
     description:
-      'Improving patient care with telemedicine platforms, health records systems, and clinical research tools.',
+      'Digitizing real estate and construction workflows through cloud tools and data-driven platforms.',
     imageUrl: '/assets/img/kiggla/industry/img-9.jpg',
   },
   {
-    title: 'Gaming',
+    title: 'Media, Entertainment & Marketing',
     description:
-      'Crafting immersive gaming experiences with real-time multiplayer, analytics, and monetization platforms.',
+      'Delivering high-performance digital content through automation, analytics, and creative innovation.',
     imageUrl: '/assets/img/kiggla/industry/img-10.jpg',
   },
 ];
@@ -242,9 +242,11 @@ const IndustryImpact = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
         >
-          <button className="tw-inline-flex tw-items-center tw-bg-primary tw-text-white tw-px-8 tw-py-4 tw-rounded-full tw-font-semibold tw-text-lg tw-transition-all tw-duration-300 hover:tw-bg-primary/90 hover:tw-scale-105 hover:tw-shadow-lg tw-relative tw-overflow-hidden">
-            <span className="tw-relative tw-z-10">Let's Talk Business</span>
-            <div className="tw-absolute tw-inset-0 tw-bg-gradient-to-r tw-from-primary tw-to-primary/80 tw-transition-transform tw-duration-300 tw-scale-x-0 hover:tw-scale-x-100 tw-origin-left"></div>
+          <button
+            className="tw-bg-primary tw-text-white tw-py-3 tw-px-6 tw-rounded-full tw-font-semibold tw-transition-colors hover:tw-bg-secondary"
+            href="#contact"
+          >
+            Let's Talk Now
           </button>
         </motion.div>
       </div>
