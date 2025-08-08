@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
-// The CountUp component remains the same
 const CountUp = ({ end, duration = 2000, startCounting }) => {
   const [count, setCount] = useState(startCounting ? 0 : end);
 
   useEffect(() => {
     if (!startCounting) {
-      setCount(end); // Immediately set to the final value when not counting
+      setCount(end);
       return;
     }
 
@@ -130,7 +129,6 @@ const CounterSection = () => {
               </ul>
             </div>
             <div className="tw-pt-4">
-              {/* REMOVED: md:tw-justify-start to keep it centered on all screens */}
               <div className="tw-flex tw-items-center tw-gap-3 tw-text-muted tw-justify-center">
                 <div className="tw-w-8 tw-h-px tw-bg-primary" />
                 <span className="tw-text-sm tw-font-medium">

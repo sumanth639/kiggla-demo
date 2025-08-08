@@ -151,7 +151,7 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <div className="tw-relative tw-bg-background tw-text-text tw-py-20 lg:tw-py-32">
+    <div className="tw-relative tw-bg-background tw-text-text tw-py-16 lg:tw-py-24">
       <div className="tw-container tw-mx-auto tw-px-6">
         <motion.div
           className="tw-flex tw-flex-col lg:tw-flex-row tw-items-center tw-gap-16"

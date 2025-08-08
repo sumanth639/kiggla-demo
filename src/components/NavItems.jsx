@@ -9,7 +9,7 @@ export default function NavItems({
   sliderStyle,
   hoveredItem,
   isMobile = false,
-  textColor = 'tw-text-text', // Accept textColor prop from Header
+  textColor = 'tw-text-text',
 }) {
   const navigationItems = [
     { name: 'Home', path: '#home' },
@@ -51,9 +51,7 @@ export default function NavItems({
       return 'tw-w-full tw-rounded-none tw-bg-transparent tw-p-0';
     }
 
-    // For desktop, adjust background based on header state
     if (textColor === 'tw-text-white') {
-      // Transparent header state - use glassmorphic effect
       return 'tw-rounded-[25px] tw-bg-black/10 tw-p-1 tw-backdrop-blur-xl tw-border tw-border-white/10';
     } else {
       // Solid header state - use theme background

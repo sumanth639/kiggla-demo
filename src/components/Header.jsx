@@ -152,28 +152,22 @@ export default function Header({ variant }) {
     },
   };
 
-  // Determine if header has background (scrolled state)
   const hasBackground = prevScrollPos > 100;
 
-  // Dynamic text colors based on state
   const getTextColor = () => {
     if (hasBackground) {
-      // When header has background, use theme-appropriate colors
       return 'tw-text-text';
     } else {
-      // When transparent, always use white for visibility
       return 'tw-text-white';
     }
   };
 
   const getLoginButtonClasses = () => {
     if (hasBackground) {
-      // When header has background, use theme-appropriate styling
       return isDarkMode
         ? 'tw-text-white tw-border-white/30 tw-bg-white/10 hover:tw-bg-white/20 hover:tw-border-white/50'
         : 'tw-text-text tw-border-gray-300 tw-bg-gray-100 hover:tw-bg-gray-200 hover:tw-border-gray-400';
     } else {
-      // When transparent, use white styling for visibility
       return 'tw-text-white tw-border-white/30 tw-bg-white/10 hover:tw-bg-white/20 hover:tw-border-white/50';
     }
   };

@@ -45,7 +45,7 @@ const teamMembers = [
 const TeamSlider = () => {
   return (
     <section id="team">
-      <div className="tw-relative tw-bg-background tw-text-text tw-py-12 ">
+      <div className="tw-relative tw-bg-background tw-text-text tw-pb-12 tw-pt-0 ">
         <div className="tw-container tw-mx-auto tw-px-6">
           {/* Section Header */}
           <div className="tw-text-center tw-mb-10 lg:tw-mb-12">

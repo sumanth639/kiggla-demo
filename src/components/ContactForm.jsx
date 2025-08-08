@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-// Refined useInView hook for better behavior
 const useInView = (threshold = 0.2, triggerOnce = true) => {
   const [ref, setRef] = useState(null);
   const [inView, setInView] = useState(false);

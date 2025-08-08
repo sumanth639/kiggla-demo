@@ -28,8 +28,7 @@ const HeroSection = () => {
   const [typingIndex, setTypingIndex] = useState(0);
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [dots, setDots] = useState('...'); // Effect for the background image slider
-
+  const [dots, setDots] = useState('...');
   useEffect(() => {
     const bgInterval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % backgroundImages.length);
@@ -38,7 +37,7 @@ const HeroSection = () => {
     return () => {
       clearInterval(bgInterval);
     };
-  }, [backgroundImages, currentSlide]); // Effect for the typing animation
+  }, [backgroundImages, currentSlide]);
 
   useEffect(() => {
     const typingSpeed = 60;
@@ -126,7 +125,7 @@ const HeroSection = () => {
   useEffect(() => {
     if (isHovered) {
       let iterations = 0;
-      const maxIterations = 15; // Decreased from 20 for faster reveal
+      const maxIterations = 15;
 
       const scrambleInterval = setInterval(() => {
         setScrambledText((prevText) =>
@@ -160,7 +159,7 @@ const HeroSection = () => {
           setScrambledText(originalText);
           clearInterval(scrambleInterval);
         }
-      }, 30); // Decreased from 50ms for faster animation
+      }, 30);
 
       return () => clearInterval(scrambleInterval);
     } else {
