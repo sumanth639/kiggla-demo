@@ -38,8 +38,8 @@ export default function NavItems({
     if (textColor === 'tw-text-white') {
       // When header is transparent, use white/gray variants
       return isActive
-        ? 'tw-text-white'
-        : 'tw-text-white/70 hover:tw-text-white';
+        ? 'tw-text-white tw-font-semibold'
+        : 'tw-text-white/80 hover:tw-text-white';
     } else {
       // When header has background, use theme colors
       return isActive ? 'tw-text-primary' : 'tw-text-muted hover:tw-text-text';
@@ -53,8 +53,8 @@ export default function NavItems({
 
     // For desktop, adjust background based on header state
     if (textColor === 'tw-text-white') {
-      // Transparent header state - use semi-transparent background
-      return 'tw-rounded-[25px] tw-bg-white/10 tw-p-1 tw-backdrop-blur-md tw-border-2 tw-border-white/20';
+      // Transparent header state - use glassmorphic effect
+      return 'tw-rounded-[25px] tw-bg-black/10 tw-p-1 tw-backdrop-blur-xl tw-border tw-border-white/10';
     } else {
       // Solid header state - use theme background
       return 'tw-rounded-[25px] tw-bg-card/50 tw-p-1 tw-backdrop-blur-md tw-border-2 tw-border-border/30';
@@ -69,9 +69,9 @@ export default function NavItems({
     >
       {!isMobile && (
         <motion.div
-          className={`nav-slider tw-absolute tw-left-1 tw-top-1 tw-bottom-1 tw-rounded-[20px] tw-shadow-sm ${
+          className={`nav-slider tw-absolute tw-left-1 tw-top-1 tw-bottom-1 tw-rounded-[20px] tw-shadow-lg ${
             textColor === 'tw-text-white'
-              ? 'tw-bg-white/20 tw-border tw-border-white/30'
+              ? 'tw-bg-white/15 tw-border tw-border-white/20 tw-backdrop-blur-sm'
               : 'tw-bg-card tw-border tw-border-primary/20'
           }`}
           initial={{ opacity: 0 }}

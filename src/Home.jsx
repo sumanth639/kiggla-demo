@@ -21,12 +21,21 @@ const Home = () => {
         <AboutUs />
       </div>
       <IndustryImpact />
+
       <TeamSection />
+
       <div id="services">
         <Services />
       </div>
-      <CounterSection />
-      <ContactForm />
+
+      <div id="impact">
+        <CounterSection />
+      </div>
+
+      <div id="contact">
+        <ContactForm />
+      </div>
+
       <Footer />
     </div>
   );

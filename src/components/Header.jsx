@@ -152,10 +152,6 @@ export default function Header({ variant }) {
     },
   };
 
-  if (location.pathname === '/login' || location.pathname === '/signup') {
-    return null;
-  }
-
   // Determine if header has background (scrolled state)
   const hasBackground = prevScrollPos > 100;
 
