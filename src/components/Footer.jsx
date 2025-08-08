@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="tw-space-y-6 lg:tw-w-3/12">
             <div className="tw-flex tw-items-center">
               <img
-                src="/assets/img/kiggla/logo-white.png"
+                src="/assets/img/kiggla/logo-white.webp"
                 alt="Kiggla Logo"
                 className="tw-h-12 tw-w-auto"
               />
