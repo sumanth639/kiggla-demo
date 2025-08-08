@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaEnvelope,
-  FaPhone,
+  FaPhoneAlt, // Changed from FaPhone to FaPhoneAlt
   FaMapMarkerAlt,
   FaLinkedin,
   FaTwitter,
@@ -36,7 +36,7 @@ const Footer = () => {
               businesses.
             </p>
 
-            {/*    <h4 className="tw-text-xl tw-font-semibold tw-text-white tw-mt-6 tw-mb-4">
+            {/* <h4 className="tw-text-xl tw-font-semibold tw-text-white tw-mt-6 tw-mb-4">
               Follow Us
             </h4>
             <div className="tw-flex tw-space-x-6">
@@ -166,7 +166,7 @@ const Footer = () => {
                 </div>
                 {/* Phone Card */}
                 <div className="duration-300 tw-flex tw-items-center tw-space-x-3 tw-bg-gray-800 tw-p-3 tw-rounded-lg tw-transition-colors hover:tw-bg-gray-700 tw-max-w-xs">
-                  <FaPhone className="tw-text-primary tw-flex-shrink-0 tw-h-5 tw-w-5" />
+                  <FaPhoneAlt className="tw-text-primary tw-flex-shrink-0 tw-h-5 tw-w-5" />
                   <a
                     href="tel:+1215797034"
                     className="transition-colors tw-text-base tw-font-medium hover:tw-text-white"

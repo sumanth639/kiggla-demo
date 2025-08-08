@@ -12,34 +12,34 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const teamMembers = [
-  { name: 'Jane Doe', role: 'Solutions Architect', imageSeed: 'person1' },
-  { name: 'Olivia Martinez', role: 'UX/UI Specialist', imageSeed: 'person2' },
+  { name: 'John Smith', role: 'Solutions Architect', imageSeed: 'person1' },
+  { name: 'Michael Brown', role: 'UX/UI Specialist', imageSeed: 'person2' },
   {
-    name: 'John Smith',
+    name: 'Liam Parker',
     role: 'Digital Strategy Consultant',
     imageSeed: 'person3',
   },
   {
-    name: 'Michael Brown',
+    name: 'Emma Sullivan',
     role: 'Technology Delivery Manager',
     imageSeed: 'person4',
   },
   {
-    name: 'Jobin Thomas',
+    name: 'Ethan Reynolds',
     role: 'Cybersecurity Consultant',
     imageSeed: 'person5',
   },
   {
-    name: 'David Lee',
+    name: 'Ava Brooks',
     role: 'Cloud Infrastructure Engineer',
     imageSeed: 'person6',
   },
   {
-    name: 'Emily Chen',
+    name: 'Mason Carter',
     role: 'Enterprise IT Advisor',
     imageSeed: 'person7',
   },
-  { name: 'Chris Evans', role: 'Client Engagement Lead', imageSeed: 'person8' },
+  { name: 'Emma Evans', role: 'Client Engagement Lead', imageSeed: 'person8' },
 ];
 
 const TeamSlider = () => {

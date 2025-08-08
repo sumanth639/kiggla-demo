@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -28,9 +28,8 @@ const HeroSection = () => {
   const [typingIndex, setTypingIndex] = useState(0);
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [dots, setDots] = useState('...');
+  const [dots, setDots] = useState('...'); // Effect for the background image slider
 
-  // Effect for the background image slider (now separate)
   useEffect(() => {
     const bgInterval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % backgroundImages.length);
@@ -39,9 +38,8 @@ const HeroSection = () => {
     return () => {
       clearInterval(bgInterval);
     };
-  }, [backgroundImages, currentSlide]);
+  }, [backgroundImages, currentSlide]); // Effect for the typing animation
 
-  // Effect for the typing animation
   useEffect(() => {
     const typingSpeed = 60;
     const deletingSpeed = 30;
@@ -116,6 +114,60 @@ const HeroSection = () => {
     exit: { opacity: 0, transition: { duration: 1.5, ease: 'easeInOut' } },
   };
 
+  // Scramble text effect
+  const [isHovered, setIsHovered] = useState(false);
+  const [scrambledText, setScrambledText] = useState(
+    'Transform\nYour Digital Future.'
+  );
+  const originalText = 'Transform\nYour Digital Future.';
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*';
+
+  useEffect(() => {
+    if (isHovered) {
+      let iterations = 0;
+      const maxIterations = 20;
+
+      const scrambleInterval = setInterval(() => {
+        setScrambledText((prevText) =>
+          prevText
+            .split('')
+            .map((char, index) => {
+              if (char === ' ' || char === '\n') return char;
+
+              if (iterations < maxIterations * 0.7) {
+                // Scrambling phase
+                return characters[
+                  Math.floor(Math.random() * characters.length)
+                ];
+              } else {
+                // Revealing phase - progressively show correct characters
+                const revealThreshold =
+                  (iterations - maxIterations * 0.7) / (maxIterations * 0.3);
+                const shouldReveal =
+                  index / originalText.length < revealThreshold;
+                return shouldReveal
+                  ? originalText[index]
+                  : characters[Math.floor(Math.random() * characters.length)];
+              }
+            })
+            .join('')
+        );
+
+        iterations++;
+
+        if (iterations >= maxIterations) {
+          setScrambledText(originalText);
+          clearInterval(scrambleInterval);
+        }
+      }, 50);
+
+      return () => clearInterval(scrambleInterval);
+    } else {
+      setScrambledText(originalText);
+    }
+  }, [isHovered]);
+
   return (
     <div className="tw-relative tw-min-h-screen tw-pt-[90px] tw-bg-background tw-text-text tw-overflow-hidden tw-flex tw-flex-col">
       <AnimatePresence>
@@ -129,26 +181,62 @@ const HeroSection = () => {
           style={{ backgroundImage: `url(${backgroundImages[currentSlide]})` }}
         />
       </AnimatePresence>
+
       <div className="tw-absolute tw-inset-0 tw-bg-black/70 tw-z-10"></div>
+
+      <div
+        className="tw-absolute tw-inset-0 tw-pointer-events-none tw-z-10"
+        style={{ opacity: 0.05 }}
+      >
+        <div
+          className="tw-w-full tw-h-full"
+          style={{
+            backgroundImage: `
+          linear-gradient(var(--color-primary) 1px, transparent 1px),
+          linear-gradient(90deg, var(--color-primary) 1px, transparent 1px)
+        `,
+            backgroundSize: '60px 60px',
+          }}
+        />
+      </div>
+
       <div className="tw-container tw-mx-auto tw-px-6 sm:tw-px-8 md:tw-px-16 tw-relative tw-z-20 tw-flex tw-flex-1 tw-items-center tw-justify-center tw-w-full">
         <motion.div
-          className="tw-flex tw-flex-col md:tw-flex-row tw-items-center tw-justify-center tw-w-full tw-py-20"
+          className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-w-full tw-py-20"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <div className="tw-flex tw-flex-col tw-justify-center tw-space-y-8 tw-flex-1 tw-text-center">
+          <div className="tw-flex tw-flex-col tw-justify-center tw-space-y-8 tw-flex-1 tw-text-center tw-relative">
             <motion.div variants={itemVariants}>
-              <h1 className="tw-text-5xl sm:tw-text-6xl md:tw-text-7xl tw-font-bold tw-leading-tight tw-tracking-tight tw-text-white">
-                Transform <br />
-                Your Digital Future.
-              </h1>
+              <motion.h1
+                className="tw-text-5xl sm:tw-text-6xl md:tw-text-7xl tw-font-bold tw-leading-snug tw-tracking-wider tw-cursor-pointer tw-select-none"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                {scrambledText.split('\n').map((line, index) => (
+                  <React.Fragment key={index}>
+                    {line}
+                    {index < scrambledText.split('\n').length - 1 && <br />}
+                  </React.Fragment>
+                ))}
+              </motion.h1>
             </motion.div>
+
             <motion.div variants={itemVariants}>
-              <p className="tw-max-w-xl tw-text-xl tw-font-extralight tw-leading-relaxed tw-text-white tw-mx-auto tw-min-h-[50px]">
+              <p
+                className="tw-max-w-xl tw-text-xl tw-font-extralight tw-leading-relaxed tw-mx-auto tw-min-h-[50px]"
+                style={{ color: 'var(--color-text)' }}
+              >
                 {currentTypingText}
-                <span className="tw-text-primary">{dots}</span>
-                <span className="tw-border-r-2 tw-border-solid tw-border-white tw-animate-pulse">
+                <span style={{ color: 'var(--color-primary)' }}>{dots}</span>
+
+                <span
+                  className="tw-animate-pulse"
+                  style={{
+                    borderRight: '2px solid var(--color-text)',
+                  }}
+                >
                   &nbsp;
                 </span>
               </p>
