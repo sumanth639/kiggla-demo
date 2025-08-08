@@ -126,7 +126,7 @@ const HeroSection = () => {
   useEffect(() => {
     if (isHovered) {
       let iterations = 0;
-      const maxIterations = 20;
+      const maxIterations = 15; // Decreased from 20 for faster reveal
 
       const scrambleInterval = setInterval(() => {
         setScrambledText((prevText) =>
@@ -160,7 +160,7 @@ const HeroSection = () => {
           setScrambledText(originalText);
           clearInterval(scrambleInterval);
         }
-      }, 50);
+      }, 30); // Decreased from 50ms for faster animation
 
       return () => clearInterval(scrambleInterval);
     } else {

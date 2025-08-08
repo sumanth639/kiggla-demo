@@ -118,8 +118,7 @@ const CounterSection = () => {
               <h3 className="tw-text-2xl tw-font-bold tw-text-text">
                 Why Choose Kiggla?
               </h3>
-              {/* List items are left-aligned for readability */}
-              <ul className="tw-space-y-2 tw-text-muted tw-list-disc tw-list-inside tw-inline-block tw-text-left">
+              <ul className="tw-space-y-2 tw-text-muted tw-list-disc tw-list-inside tw-inline-block md:tw-text-left">
                 <li>
                   <strong>Global Expertise:</strong> Serving clients across 23+
                   countries with localized solutions.
@@ -131,7 +130,8 @@ const CounterSection = () => {
               </ul>
             </div>
             <div className="tw-pt-4">
-              <div className="tw-inline-flex tw-items-center tw-gap-3 tw-text-muted">
+              {/* REMOVED: md:tw-justify-start to keep it centered on all screens */}
+              <div className="tw-flex tw-items-center tw-gap-3 tw-text-muted tw-justify-center">
                 <div className="tw-w-8 tw-h-px tw-bg-primary" />
                 <span className="tw-text-sm tw-font-medium">
                   Where Innovation Meets Excellence

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import React from 'react';
 
 const industries = [
   {
@@ -87,20 +88,6 @@ const IndustryImpact = () => {
     },
   };
 
-  const buttonVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        damping: 15,
-        delay: 0.6,
-      },
-    },
-  };
-
   return (
     <div className="tw-bg-background tw-py-16 lg:tw-py-24 tw-relative">
       {/* Subtle background pattern */}
@@ -137,101 +124,50 @@ const IndustryImpact = () => {
           </motion.h2>
         </div>
 
-        {/* Industries Two Column Layout */}
+        {/* Industries Grid Layout */}
         <motion.div
-          className="tw-max-w-6xl tw-mx-auto tw-mb-16 tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-12"
+          className="tw-max-w-6xl tw-mx-auto tw-mb-16 tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-x-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
-          {/* Left Column - First 5 industries */}
-          <div>
-            {industries.slice(0, 5).map((industry, index) => (
-              <motion.div
-                key={index}
-                className="tw-group tw-flex tw-items-start tw-py-6 tw-border-b tw-border-border/30 tw-last:border-b-0 tw-transition-all tw-duration-300 hover:tw-border-primary/50"
-                variants={itemVariants}
-              >
-                {/* Image and dot indicator */}
-                <div className="tw-flex-shrink-0 tw-w-16 tw-h-16 tw-flex tw-items-center tw-justify-center tw-mr-6 tw-relative">
-                  <div className="tw-w-14 tw-h-14 tw-rounded-full tw-overflow-hidden tw-border-2 tw-border-primary/20 tw-transition-all tw-duration-300 group-hover:tw-border-primary/60 group-hover:tw-scale-105">
-                    <img
-                      src={industry.imageUrl}
-                      alt={industry.title}
-                      className="tw-w-full tw-h-full tw-object-cover tw-transition-all tw-duration-300 group-hover:tw-scale-110"
-                    />
-                  </div>
-                  <div className="tw-absolute tw-bottom-0 tw-right-0 tw-w-4 tw-h-4 tw-bg-primary tw-rounded-full tw-border-2 tw-border-background tw-transition-all tw-duration-300 group-hover:tw-scale-125"></div>
+          {industries.map((industry, index) => (
+            <motion.div
+              key={index}
+              className="tw-group tw-flex tw-items-start tw-py-6 tw-border-b tw-border-border/30 tw-last:border-b-0 md:tw-last:border-b tw-transition-all tw-duration-300 hover:tw-border-primary/50"
+              variants={itemVariants}
+            >
+              {/* Image and dot indicator */}
+              <div className="tw-flex-shrink-0 tw-w-16 tw-h-16 tw-flex tw-items-center tw-justify-center tw-mr-6 tw-relative">
+                <div className="tw-w-14 tw-h-14 tw-rounded-full tw-overflow-hidden tw-border-2 tw-border-primary/20 tw-transition-all tw-duration-300 group-hover:tw-border-primary/60 group-hover:tw-scale-105">
+                  <img
+                    src={industry.imageUrl}
+                    alt={industry.title}
+                    className="tw-w-full tw-h-full tw-object-cover tw-transition-all tw-duration-300 group-hover:tw-scale-110"
+                  />
                 </div>
+                <div className="tw-absolute tw-bottom-0 tw-right-0 tw-w-4 tw-h-4 tw-bg-primary tw-rounded-full tw-border-2 tw-border-background tw-transition-all tw-duration-300 group-hover:tw-scale-125"></div>
+              </div>
 
-                {/* Content */}
-                <div className="tw-flex-1 tw-min-w-0">
-                  <div className="tw-flex tw-flex-col tw-gap-4">
-                    <div className="tw-flex-1">
-                      <h3 className="tw-text-xl tw-font-bold tw-text-text tw-mb-2 tw-transition-colors tw-duration-300 group-hover:tw-text-primary">
-                        {industry.title}
-                      </h3>
-                      <p className="tw-text-muted tw-leading-relaxed tw-pr-4">
-                        {industry.description}
-                      </p>
-                    </div>
+              {/* Content */}
+              <div className="tw-flex-1 tw-min-w-0">
+                <h3 className="tw-text-xl tw-font-bold tw-text-text tw-mb-2 tw-transition-colors tw-duration-300 group-hover:tw-text-primary">
+                  {industry.title}
+                </h3>
+                <p className="tw-text-muted tw-leading-relaxed tw-pr-4">
+                  {industry.description}
+                </p>
+              </div>
 
-                    {/* Arrow indicator */}
-                    <div className="tw-flex-shrink-0 tw-opacity-0 tw-translate-x-4 tw-transition-all tw-duration-300 group-hover:tw-opacity-100 group-hover:tw-translate-x-0">
-                      <div className="tw-w-8 tw-h-0.5 tw-bg-primary tw-relative">
-                        <div className="tw-absolute tw-right-0 tw-top-1/2 tw--translate-y-1/2 tw-w-0 tw-h-0 tw-border-l-4 tw-border-l-primary tw-border-t-2 tw-border-t-transparent tw-border-b-2 tw-border-b-transparent"></div>
-                      </div>
-                    </div>
-                  </div>
+              {/* Arrow indicator */}
+              <div className="tw-flex-shrink-0 tw-opacity-0 tw-translate-x-4 tw-transition-all tw-duration-300 group-hover:tw-opacity-100 group-hover:tw-translate-x-0">
+                <div className="tw-w-8 tw-h-0.5 tw-bg-primary tw-relative">
+                  <div className="tw-absolute tw-right-0 tw-top-1/2 tw--translate-y-1/2 tw-w-0 tw-h-0 tw-border-l-4 tw-border-l-primary tw-border-t-2 tw-border-t-transparent tw-border-b-2 tw-border-b-transparent"></div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Right Column - Last 5 industries */}
-          <div>
-            {industries.slice(5, 10).map((industry, index) => (
-              <motion.div
-                key={index + 5}
-                className="tw-group tw-flex tw-items-start tw-py-6 tw-border-b tw-border-border/30 tw-last:border-b-0 tw-transition-all tw-duration-300 hover:tw-border-primary/50"
-                variants={itemVariants}
-              >
-                {/* Image and dot indicator */}
-                <div className="tw-flex-shrink-0 tw-w-16 tw-h-16 tw-flex tw-items-center tw-justify-center tw-mr-6 tw-relative">
-                  <div className="tw-w-14 tw-h-14 tw-rounded-full tw-overflow-hidden tw-border-2 tw-border-primary/20 tw-transition-all tw-duration-300 group-hover:tw-border-primary/60 group-hover:tw-scale-105">
-                    <img
-                      src={industry.imageUrl}
-                      alt={industry.title}
-                      className="tw-w-full tw-h-full tw-object-cover tw-transition-all tw-duration-300 group-hover:tw-scale-110"
-                    />
-                  </div>
-                  <div className="tw-absolute tw-bottom-0 tw-right-0 tw-w-4 tw-h-4 tw-bg-primary tw-rounded-full tw-border-2 tw-border-background tw-transition-all tw-duration-300 group-hover:tw-scale-125"></div>
-                </div>
-
-                {/* Content */}
-                <div className="tw-flex-1 tw-min-w-0">
-                  <div className="tw-flex tw-flex-col tw-gap-4">
-                    <div className="tw-flex-1">
-                      <h3 className="tw-text-xl tw-font-bold tw-text-text tw-mb-2 tw-transition-colors tw-duration-300 group-hover:tw-text-primary">
-                        {industry.title}
-                      </h3>
-                      <p className="tw-text-muted tw-leading-relaxed tw-pr-4">
-                        {industry.description}
-                      </p>
-                    </div>
-
-                    {/* Arrow indicator */}
-                    <div className="tw-flex-shrink-0 tw-opacity-0 tw-translate-x-4 tw-transition-all tw-duration-300 group-hover:tw-opacity-100 group-hover:tw-translate-x-0">
-                      <div className="tw-w-8 tw-h-0.5 tw-bg-primary tw-relative">
-                        <div className="tw-absolute tw-right-0 tw-top-1/2 tw--translate-y-1/2 tw-w-0 tw-h-0 tw-border-l-4 tw-border-l-primary tw-border-t-2 tw-border-t-transparent tw-border-b-2 tw-border-b-transparent"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </div>
