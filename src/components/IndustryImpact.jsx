@@ -233,22 +233,6 @@ const IndustryImpact = () => {
             ))}
           </div>
         </motion.div>
-
-        {/* CTA Button */}
-        <motion.div
-          className="tw-text-center"
-          variants={buttonVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <button
-            className="tw-bg-primary tw-text-white tw-py-3 tw-px-6 tw-rounded-full tw-font-semibold tw-transition-colors hover:tw-bg-secondary"
-            href="#contact"
-          >
-            Let's Talk Now
-          </button>
-        </motion.div>
       </div>
     </div>
   );
