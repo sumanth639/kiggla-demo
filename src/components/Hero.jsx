@@ -1,8 +1,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useRef } from 'react';
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const h1Ref = useRef(null);
 
   const backgroundImages = useMemo(
     () => [
@@ -29,6 +30,7 @@ const HeroSection = () => {
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [dots, setDots] = useState('...');
+
   useEffect(() => {
     const bgInterval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % backgroundImages.length);
@@ -37,7 +39,7 @@ const HeroSection = () => {
     return () => {
       clearInterval(bgInterval);
     };
-  }, [backgroundImages, currentSlide]);
+  }, [backgroundImages]);
 
   useEffect(() => {
     const typingSpeed = 60;
@@ -58,7 +60,6 @@ const HeroSection = () => {
           setCurrentTypingText(fullText.substring(0, typingIndex + 1));
           setTypingIndex((prev) => prev + 1);
         }
-
         if (
           typingIndex > fullText.length - 3 &&
           typingIndex < fullText.length
@@ -81,7 +82,7 @@ const HeroSection = () => {
     return () => {
       clearInterval(typingInterval);
     };
-  }, [typingIndex, isDeleting, textIndex, typingTexts, dots]);
+  }, [typingIndex, isDeleting, textIndex, typingTexts]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -113,59 +114,48 @@ const HeroSection = () => {
     exit: { opacity: 0, transition: { duration: 1.5, ease: 'easeInOut' } },
   };
 
-  // Scramble text effect
-  const [isHovered, setIsHovered] = useState(false);
-  const [scrambledText, setScrambledText] = useState(
-    'Transform\nYour Digital Future.'
-  );
   const originalText = 'Transform\nYour Digital Future.';
   const characters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*';
+  let interval = null;
 
-  useEffect(() => {
-    if (isHovered) {
-      let iterations = 0;
-      const maxIterations = 15;
+  const handleMouseEnter = () => {
+    if (!h1Ref.current) return;
+    const element = h1Ref.current;
+    let iterations = 0;
+    const maxIterations = 15;
 
-      const scrambleInterval = setInterval(() => {
-        setScrambledText((prevText) =>
-          prevText
-            .split('')
-            .map((char, index) => {
-              if (char === ' ' || char === '\n') return char;
+    if (interval) clearInterval(interval);
 
-              if (iterations < maxIterations * 0.7) {
-                // Scrambling phase
-                return characters[
-                  Math.floor(Math.random() * characters.length)
-                ];
-              } else {
-                // Revealing phase - progressively show correct characters
-                const revealThreshold =
-                  (iterations - maxIterations * 0.7) / (maxIterations * 0.3);
-                const shouldReveal =
-                  index / originalText.length < revealThreshold;
-                return shouldReveal
-                  ? originalText[index]
-                  : characters[Math.floor(Math.random() * characters.length)];
-              }
-            })
-            .join('')
-        );
+    interval = setInterval(() => {
+      const scrambledText = element.innerText
+        .split('')
+        .map((char, index) => {
+          if (char === ' ' || char === '\n' || index > iterations)
+            return originalText[index];
+          return characters[Math.floor(Math.random() * characters.length)];
+        })
+        .join('');
 
-        iterations++;
+      element.innerText = scrambledText;
 
-        if (iterations >= maxIterations) {
-          setScrambledText(originalText);
-          clearInterval(scrambleInterval);
-        }
-      }, 30);
+      if (iterations >= originalText.length) {
+        clearInterval(interval);
+        interval = null;
+        element.innerText = originalText;
+      }
 
-      return () => clearInterval(scrambleInterval);
-    } else {
-      setScrambledText(originalText);
+      iterations += 1 / 3;
+    }, 30);
+  };
+
+  const handleMouseLeave = () => {
+    if (interval) clearInterval(interval);
+    interval = null;
+    if (h1Ref.current) {
+      h1Ref.current.innerText = originalText;
     }
-  }, [isHovered]);
+  };
 
   return (
     <div className="tw-relative tw-min-h-screen tw-pt-[90px] tw-bg-background tw-text-text tw-overflow-hidden tw-flex tw-flex-col">
@@ -208,25 +198,21 @@ const HeroSection = () => {
         >
           <div className="tw-flex tw-flex-col tw-justify-center tw-space-y-8 tw-flex-1 tw-text-center tw-relative">
             <motion.div variants={itemVariants}>
-              <motion.h1
+              <h1
+                ref={h1Ref}
                 className="tw-text-5xl tw-text-white sm:tw-text-6xl md:tw-text-7xl tw-font-bold tw-leading-snug tw-tracking-wider tw-cursor-pointer tw-select-none"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
-                {scrambledText.split('\n').map((line, index) => (
-                  <React.Fragment key={index}>
-                    {line}
-                    {index < scrambledText.split('\n').length - 1 && <br />}
-                  </React.Fragment>
-                ))}
-              </motion.h1>
+                Transform
+                <br />
+                Your Digital Future.
+              </h1>
             </motion.div>
-
             <motion.div variants={itemVariants}>
               <p className="tw-max-w-xl tw-text-xl tw-text-white tw-font-extralight tw-leading-relaxed tw-mx-auto tw-min-h-[50px]">
                 {currentTypingText}
                 <span style={{ color: 'var(--color-primary)' }}>{dots}</span>
-
                 <span
                   className="tw-animate-pulse"
                   style={{
