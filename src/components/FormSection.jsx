@@ -1,5 +1,6 @@
 // src/components/FormSection.jsx
 import React, { useState } from 'react';
+import { supabase } from '../supabaseClient';
 import { services, budgetRanges } from '../constants/contactConstants';
 
 const FormSection = ({ inView }) => {
@@ -33,47 +34,72 @@ const FormSection = ({ inView }) => {
 
     const form = new FormData();
     form.append('access_key', import.meta.env.VITE_WEB3FORM_ACCESS_KEY);
-
-    // Add custom sender name and subject line for better email organization
     form.append('from_name', 'Kiggla Website');
     form.append(
       'subject',
       `New Inquiry from ${formData.firstName} ${formData.lastName}`
     );
 
-    // Append all form data
     for (const key in formData) {
       form.append(key, formData[key]);
     }
 
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      // 1. Submit to Web3Forms
+      const web3formsRes = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: form,
       });
 
-      const data = await res.json();
+      const web3formsData = await web3formsRes.json();
 
-      if (data.success) {
-        setShowSuccess(true);
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          company: '',
-          service: '',
-          budget: '',
-          message: '',
-        });
-        setTimeout(() => {
-          setShowSuccess(false);
-        }, 3000);
-      } else {
-        setErrorMessage(data.message || 'Something went wrong!');
+      if (!web3formsData.success) {
+        throw new Error(
+          web3formsData.message || 'Web3Forms submission failed!'
+        );
       }
+
+      // 2. Insert into Supabase database
+      const { data: supabaseData, error: supabaseError } = await supabase
+        .from('contact_inquiries')
+        .insert([
+          {
+            first_name: formData.firstName,
+            last_name: formData.lastName,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.company,
+            service: formData.service,
+            budget: formData.budget,
+            message: formData.message,
+          },
+        ]);
+
+      if (supabaseError) {
+        console.error('Supabase insert error:', supabaseError);
+        throw new Error(supabaseError.message || 'Supabase submission failed!');
+      }
+
+      // If both succeeded
+      setShowSuccess(true);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        company: '',
+        service: '',
+        budget: '',
+        message: '',
+      });
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 3000);
     } catch (error) {
-      setErrorMessage('Failed to send. Please try again later.');
+      console.error('Submission error:', error);
+      setErrorMessage(
+        error.message || 'Failed to send. Please try again later.'
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -88,7 +114,6 @@ const FormSection = ({ inView }) => {
       }`}
     >
       {showSuccess && (
-        // ... (Success message is unchanged)
         <div className="tw-absolute tw-inset-0 tw-bg-card tw-rounded-3xl tw-flex tw-items-center tw-justify-center tw-z-50 tw-bg-opacity-80 tw-backdrop-blur-sm">
           <div className="tw-text-center tw-p-8">
             <div className="tw-w-20 tw-h-20 tw-bg-primary/20 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mx-auto tw-mb-6">
@@ -126,7 +151,6 @@ const FormSection = ({ inView }) => {
             Fill out the form below and we'll be in touch soon.
           </p>
         </div>
-        {/* Your input fields are unchanged here */}
         <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-6">
           <div className="tw-space-y-2">
             <label
