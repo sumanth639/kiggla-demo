@@ -111,7 +111,7 @@ const Footer = () => {
               technology solutions tailored to meet the unique needs of
               businesses.
             </p>
-            <div>
+            {/* <div>
               <h4 className="tw-text-xl tw-font-semibold tw-text-white tw-mb-6">
                 Follow Us
               </h4>
@@ -145,7 +145,7 @@ const Footer = () => {
                   <FaFacebookF className="tw-h-6 tw-w-6" />
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Contact Section */}
@@ -173,10 +173,10 @@ const Footer = () => {
                   <FaPhoneAlt className="tw-text-white tw-h-4 tw-w-4" />
                 </div>
                 <a
-                  href="tel:+1215797034"
+                  href="tel:+1 940 275 1336"
                   className="tw-text-gray-300 hover:tw-text-white tw-transition-colors tw-duration-300 tw-font-medium"
                 >
-                  +1215797034
+                  +1 940 275 1336
                 </a>
               </div>
 
