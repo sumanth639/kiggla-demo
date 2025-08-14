@@ -8,6 +8,7 @@ import Services from './components/Services';
 import CounterSection from './components/CounterSection';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
+import FooterCredit from './components/FooterCredit';
 
 const Home = () => {
   return (
@@ -31,7 +32,8 @@ const Home = () => {
       <div id="contact">
         <ContactForm />
       </div>
-      <Footer />
+      {/* <Footer /> */}
+       <FooterCredit /> 
     </div>
   );
 };

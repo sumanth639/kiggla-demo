@@ -1,16 +1,19 @@
-// src/components/Header/ThemeSwitcher.jsx
 import { useEffect, useState } from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const ThemeSwitcher = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
-    const isDark = localStorage.getItem('theme') === 'dark';
-    setDarkMode(isDark);
-    if (isDark) {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'light') {
+      setDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    } else {
+      setDarkMode(true);
       document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     }
   }, []);
 
