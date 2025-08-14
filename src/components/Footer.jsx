@@ -149,12 +149,12 @@ const Footer = () => {
           </div>
 
           {/* Contact Section */}
-          <div className="lg:tw-col-span-4">
+        {/* <div className="lg:tw-col-span-4">
             <h4 className="tw-text-xl tw-font-semibold tw-text-white tw-mb-6">
               Let's Talk
             </h4>
             <div className="tw-space-y-4">
-              {/* Email Card */}
+            
               <div className="tw-flex tw-items-center tw-space-x-4 tw-bg-gray-800 tw-p-4 tw-rounded-xl tw-transition-all tw-duration-300 hover:tw-bg-gray-700 hover:tw-scale-105">
                 <div className="tw-bg-primary tw-p-2 tw-rounded-lg tw-flex-shrink-0">
                   <FaEnvelope className="tw-text-white tw-h-4 tw-w-4" />
@@ -167,7 +167,7 @@ const Footer = () => {
                 </a>
               </div>
 
-              {/* Phone Card */}
+            
               <div className="tw-flex tw-items-center tw-space-x-4 tw-bg-gray-800 tw-p-4 tw-rounded-xl tw-transition-all tw-duration-300 hover:tw-bg-gray-700 hover:tw-scale-105">
                 <div className="tw-bg-secondary tw-p-2 tw-rounded-lg tw-flex-shrink-0">
                   <FaPhoneAlt className="tw-text-white tw-h-4 tw-w-4" />
@@ -180,7 +180,7 @@ const Footer = () => {
                 </a>
               </div>
 
-              {/* Address Card */}
+             
               <div className="tw-flex tw-items-start tw-space-x-4 tw-bg-gray-800 tw-p-4 tw-rounded-xl tw-transition-all tw-duration-300 hover:tw-bg-gray-700 hover:tw-scale-105">
                 <div className="tw-bg-red-500 tw-p-2 tw-rounded-lg tw-flex-shrink-0 tw-mt-0">
                   <FaMapMarkerAlt className="tw-text-white tw-h-4 tw-w-4" />
@@ -190,7 +190,7 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </div>  */}
 
           {/* Gallery Section */}
           <div className="lg:tw-col-span-4">

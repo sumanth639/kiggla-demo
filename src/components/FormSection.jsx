@@ -33,7 +33,7 @@ const FormSection = ({ inView }) => {
     setErrorMessage('');
 
     const form = new FormData();
-    form.append('access_key',"16617ab3-45cf-4575-9461-11c112c0631b" );
+   form.append('access_key', "16617ab3-45cf-4575-9461-11c112c0631b");
     form.append('from_name', 'Kiggla Website');
     form.append(
       'subject',
