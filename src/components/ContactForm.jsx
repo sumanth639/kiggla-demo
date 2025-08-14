@@ -45,7 +45,7 @@ const ContactForm = () => {
           {/* FormSection comes second */}
           <div
             ref={ref}
-            className="tw-w-3/4"
+            className="tw-w-full md:tw-w-3/4"
           >
             <FormSection inView={inView} />
           </div>
