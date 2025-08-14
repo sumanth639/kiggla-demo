@@ -118,7 +118,7 @@ const HeroSection = () => {
               <h1 className="tw-text-5xl animate-title-glow tw-text-white sm:tw-text-6xl md:tw-text-7xl tw-font-bold tw-leading-snug tw-tracking-wider tw-select-none">
                 Transform
                 <br />
-                Your Digital Future.
+                Your Digital Future
               </h1>
             </motion.div>
             <motion.div variants={itemVariants}>
