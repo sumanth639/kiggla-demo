@@ -36,7 +36,7 @@ const teamMembers = [
   },
   {
     name: 'Mason Carter',
-    role: 'Enterprise IT Advisor',
+    role: 'AI & Machine Learning Expert',
     imageSeed: 'person7',
   },
   { name: 'Emma Evans', role: 'Client Engagement Lead', imageSeed: 'person8' },

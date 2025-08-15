@@ -12,7 +12,7 @@ const FooterCredit = () => {
         <div className="tw-text-sm tw-text-gray-500 tw-flex tw-flex-col md:tw-flex-row tw-items-center tw-justify-center tw-space-y-2 md:tw-space-y-0 md:tw-space-x-4">
                    
           <p className="tw-mb-0">
-                        © {currentYear} <span className='tw-text-primary'>Kiggla.</span> All rights reserved.          
+                        © {currentYear} <span className='tw-text-primary'>Kiggla.</span> 
           </p>
                    
           <span className="tw-hidden md:tw-block tw-text-gray-600">|</span>     

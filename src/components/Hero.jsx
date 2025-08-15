@@ -116,13 +116,13 @@ const HeroSection = () => {
           <div className="tw-flex tw-flex-col tw-justify-center tw-space-y-8 tw-flex-1 tw-text-center tw-relative">
             <motion.div variants={itemVariants}>
               <h1 className="tw-text-5xl animate-title-glow tw-text-white sm:tw-text-6xl md:tw-text-7xl tw-font-bold tw-leading-snug tw-tracking-wider tw-select-none">
-                Transform
+              <span className='tw-text-secondary'> Transform</span> 
                 <br />
-                Your Digital Future
+               <span className='tw-text-primary'>Your Digital Future</span> 
               </h1>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <p className="tw-max-w-xl tw-text-xl tw-text-white tw-font-extralight tw-leading-relaxed tw-mx-auto tw-min-h-[50px]">
+              <p className="tw-max-w-xl tw-text-2xl tw-text-white tw-font-extralight tw-leading-relaxed tw-mx-auto tw-min-h-[50px]">
                 {currentTypingText}
                 <span
                   className="tw-animate-pulse"
