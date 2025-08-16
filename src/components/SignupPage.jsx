@@ -23,7 +23,7 @@ const SignupPage = () => {
     }
   }, [user, navigate]);
 
-  const handleSignUp = async (e) => {
+ const handleSignUp = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -32,11 +32,9 @@ const SignupPage = () => {
       const result = await signUpNewUser({ email, password, name });
 
       if (result.success) {
-        // Show success message or redirect
+        // The success message is now set, but there is no navigation.
+        // The user will remain on the current page to see the message.
         setError('Account created successfully! Please check your email for verification.');
-        setTimeout(() => {
-          navigate('/login');
-        }, 2000);
       } else {
         setError(result.message);
       }
