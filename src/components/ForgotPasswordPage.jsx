@@ -89,7 +89,7 @@ const ForgotPasswordPage = () => {
           >
             <div className="tw-w-16 tw-h-16 tw-mx-auto tw-bg-green-100 tw-rounded-full tw-flex tw-items-center tw-justify-center">
               <svg
-                className="tw-w-8 tw-h-8 tw-text-green-600"
+                className="tw-w-8 tw-h-8 tw-text-primary"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -103,10 +103,10 @@ const ForgotPasswordPage = () => {
               </svg>
             </div>
             <div>
-              <h3 className="tw-text-xl tw-font-semibold tw-text-green-800 tw-mb-2">
+              <h3 className="tw-text-xl tw-font-semibold tw-text-secondary tw-mb-2">
                 Check Your Email
               </h3>
-              <p className="tw-text-green-700 tw-mb-6">
+              <p className="tw-text-primary tw-mb-6">
                 We've sent a password reset link to your email address. Please check your inbox and follow the instructions.
               </p>
             </div>
