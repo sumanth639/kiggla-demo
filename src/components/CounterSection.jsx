@@ -119,12 +119,16 @@ const CounterSection = () => {
               </h3>
               <ul className="tw-space-y-2 tw-text-muted tw-list-disc tw-list-inside tw-inline-block md:tw-text-left">
                 <li>
-                  <strong>Global Expertise:</strong> Serving clients across 23+
-                  countries with localized solutions.
+                  <strong>Global Expertise:</strong> Delivering tailored
+                  solutions across 23+ countries.
                 </li>
                 <li>
-                  <strong>Proven Track Record:</strong> 15+ years of consistent
-                  delivery with 3000+ successful projects.
+                  <strong>Proven Track Record:</strong> 3000+ projects delivered
+                  successfully.
+                </li>
+                <li>
+                  <strong>Trusted Experience:</strong> 15+ years helping
+                  businesses grow with technology.
                 </li>
               </ul>
             </div>
