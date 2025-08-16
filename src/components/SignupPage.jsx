@@ -16,14 +16,13 @@ const SignupPage = () => {
   const navigate = useNavigate();
   const { user, signUpNewUser, signInWithGoogle } = UserAuth();
 
-  // Redirect if already logged in
   React.useEffect(() => {
     if (user) {
       navigate('/');
     }
   }, [user, navigate]);
 
- const handleSignUp = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -32,8 +31,6 @@ const SignupPage = () => {
       const result = await signUpNewUser({ email, password, name });
 
       if (result.success) {
-        // The success message is now set, but there is no navigation.
-        // The user will remain on the current page to see the message.
         setError('Account created successfully! Please check your email for verification.');
       } else {
         setError(result.message);
@@ -53,8 +50,7 @@ const SignupPage = () => {
       const result = await signInWithGoogle();
       
       if (result.success) {
-        // Google OAuth will redirect, so we don't need to navigate manually
-        // The user will be redirected back to the app after authentication
+        // Google OAuth handles redirection, so no manual navigation here.
       } else {
         setError(result.message);
       }
@@ -64,7 +60,7 @@ const SignupPage = () => {
       setLoading(false);
     }
   };
-
+  
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {

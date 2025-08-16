@@ -174,7 +174,7 @@ const LoginPage = () => {
               </div>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <button
+              <motion.button
                 type="submit"
                 className="tw-w-full tw-bg-primary tw-text-white tw-py-2 tw-px-4 tw-rounded-md tw-font-semibold tw-transition-colors hover:tw-bg-secondary disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
                 whileHover={{ scale: loading ? 1 : 1.05 }}
@@ -182,7 +182,7 @@ const LoginPage = () => {
                 disabled={loading}
               >
                 {loading ? 'Logging In...' : 'Log In'}
-              </button>
+              </motion.button>
             </motion.div>
           </form>
 
@@ -205,7 +205,7 @@ const LoginPage = () => {
               <span className="tw-text-sm tw-text-muted">or</span>
               <div className="tw-border-b tw-border-border tw-w-full" />
             </div>
-            <button
+            <motion.button
               className="tw-w-full tw-mt-4 tw-flex tw-items-center tw-justify-center tw-space-x-2 tw-bg-background tw-border tw-border-border tw-text-text tw-py-2 tw-px-4 tw-rounded-md tw-font-semibold tw-transition-colors hover:tw-bg-card disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
               onClick={handleGoogleSignIn}
               disabled={loading}
@@ -214,7 +214,7 @@ const LoginPage = () => {
             >
               <FcGoogle color={googleLogoColor} />
               <span>{loading ? 'Signing in...' : 'Sign in with Google'}</span>
-            </button>
+            </motion.button>
           </motion.div>
         </motion.div>
       </div>
