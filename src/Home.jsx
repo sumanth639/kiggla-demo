@@ -33,7 +33,7 @@ const Home = () => {
         <ContactForm />
       </div>
       {/* <Footer /> */}
-       <FooterCredit /> 
+       {/* <FooterCredit />  */}
     </div>
   );
 };

@@ -51,78 +51,79 @@ const AboutUs = () => {
     exit: { opacity: 0, x: 20, transition: { duration: 0.3 } },
   };
 
-  const tabs = [
-    {
-      id: 'mission',
-      label: 'Our Mission',
-      content: (
-        <>
-          <h3 className="tw-text-3xl tw-font-bold tw-text-text">
-            Empowering Digital Growth, One Solution at a Time
-          </h3>
+ const tabs = [
+  {
+    id: 'mission',
+    label: 'Our Mission',
+    content: (
+      <>
+        <h3 className="tw-text-3xl tw-font-bold tw-text-text">
+          Empowering Growth. One Solution at a Time.
+        </h3>
 
-          <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
-            At Kiggla, our mission is to bridge the gap between cutting-edge
-            technology and real business outcomes. We help organizations of all
-            sizes unlock their full potential through strategic IT consulting,
-            intelligent solutions, and ongoing support.
-          </p>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted">
-            We’re committed to creating customized, scalable, and secure systems
-            that empower businesses to innovate faster, adapt smarter, and grow
-            sustainably in an ever-evolving digital landscape.
-          </p>
-        </>
-      ),
-    },
+        <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
+          At Kiggla, our mission is to bridge the gap between cutting-edge
+          technology and real business outcomes. We help organizations of all
+          sizes unlock their full potential through strategic IT consulting,
+          intelligent solutions, and ongoing support.
+        </p>
+        <p className="tw-mt-4 tw-text-lg tw-text-muted">
+          We’re committed to creating customized, scalable, and secure systems
+          that empower businesses to innovate faster, adapt smarter, and grow
+          sustainably in an ever-evolving digital landscape.
+        </p>
+      </>
+    ),
+  },
 
-    {
-      id: 'vision',
-      label: 'Our Vision',
-      content: (
-        <>
-          <h3 className="tw-text-3xl tw-font-bold tw-text-text">
-            A Future Where Technology Drives Meaningful Change
-          </h3>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
-            We envision a world where technology is not a barrier but a
-            bridge—connecting businesses to new opportunities, ideas, and
-            markets with confidence.
-          </p>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted">
-            Our goal is to lead this transformation by providing
-            forward-thinking IT strategies that are human-centered,
-            innovation-driven, and rooted in trust. We strive to be the partner
-            businesses turn to when they’re ready to lead—not follow.
-          </p>
-        </>
-      ),
-    },
-    {
-      id: 'story',
-      label: 'Our Story',
-      content: (
-        <>
-          <h3 className="tw-text-3xl tw-font-bold tw-text-text">
-            Built on Passion. Driven by Innovation.
-          </h3>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
-            Kiggla started with a clear purpose—to simplify IT for businesses
-            and make innovation accessible. What began as a small team of tech
-            enthusiasts has grown into a trusted consulting firm serving clients
-            across industries.
-          </p>
-          <p className="tw-mt-4 tw-text-lg tw-text-muted">
-            Over the years, we’ve helped businesses streamline operations,
-            secure their systems, and embrace next-gen technology with
-            confidence. Our journey reflects our core belief: that with the
-            right technology and guidance, every business can thrive in the
-            digital age.
-          </p>
-        </>
-      ),
-    },
-  ];
+  {
+    id: 'vision',
+    label: 'Our Vision',
+    content: (
+      <>
+        <h3 className="tw-text-3xl tw-font-bold tw-text-text">
+          A Future Where Technology Leads Change.
+        </h3>
+        <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
+          We envision a world where technology is not a barrier but a
+          bridge—connecting businesses to new opportunities, ideas, and
+          markets with confidence.
+        </p>
+        <p className="tw-mt-4 tw-text-lg tw-text-muted">
+          Our goal is to lead this transformation by providing
+          forward-thinking IT strategies that are human-centered,
+          innovation-driven, and rooted in trust. We strive to be the partner
+          businesses turn to when they’re ready to lead—not follow.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: 'story',
+    label: 'Our Story',
+    content: (
+      <>
+        <h3 className="tw-text-3xl tw-font-bold tw-text-text">
+          Built on Passion. Driven by Innovation.
+        </h3>
+        <p className="tw-mt-4 tw-text-lg tw-text-muted tw-hidden sm:tw-block">
+          Kiggla started with a clear purpose—to simplify IT for businesses
+          and make innovation accessible. What began as a small team of tech
+          enthusiasts has grown into a trusted consulting firm serving clients
+          across industries.
+        </p>
+        <p className="tw-mt-4 tw-text-lg tw-text-muted">
+          Over the years, we’ve helped businesses streamline operations,
+          secure their systems, and embrace next-gen technology with
+          confidence. Our journey reflects our core belief: that with the
+          right technology and guidance, every business can thrive in the
+          digital age.
+        </p>
+      </>
+    ),
+  },
+];
+
 
   // Logic to change images automatically every 1 second
   useEffect(() => {
