@@ -7,10 +7,32 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Helper function to send the admin notification
+  const notifyAdmin = async (currentUser) => {
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORM_ACCESS_KEY,
+          subject: 'New Member to Kiggla!',
+          message: `A new user has just registered and confirmed their email.\n\nEmail: ${
+            currentUser.email
+          }\nName: ${currentUser.user_metadata?.full_name || currentUser.full_name || 'N/A'}`,
+        }),
+      });
+      console.log('Admin notified successfully.');
+    } catch (error) {
+      console.error('Failed to notify admin:', error);
+    }
+  };
+
   // Function to handle email/password sign-up
   const signUpNewUser = async ({ email, password, name }) => {
     try {
-      // Your custom RPC check logic for existing email goes here
       const { data: emailExists, error: rpcError } = await supabase.rpc(
         'get_user_id_by_email',
         { email_to_check: email }
@@ -138,21 +160,39 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
+  // This hook listens for auth state changes
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
+  let isNotified = false; // safeguard to prevent duplicate notifyAdmin calls
 
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
+  // Get the initial session and set the user
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    setUser(session?.user ?? null);
+    setLoading(false);
+  });
 
-    return () => subscription.unsubscribe();
-  }, []);
+  // Subscribe to auth state changes
+  const {
+    data: { subscription },
+  } = supabase.auth.onAuthStateChange((event, session) => {
+    setUser(session?.user ?? null);
+    setLoading(false);
+
+    if (
+      event === "SIGNED_IN" &&
+      session?.user?.email_confirmed_at &&
+      !isNotified // ✅ only notify once
+    ) {
+      notifyAdmin(session.user);
+      isNotified = true;
+    }
+  });
+
+  // Cleanup on unmount
+  return () => {
+    subscription.unsubscribe();
+  };
+}, []);
+
 
   return (
     <AuthContext.Provider

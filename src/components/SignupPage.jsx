@@ -31,7 +31,9 @@ const SignupPage = () => {
       const result = await signUpNewUser({ email, password, name });
 
       if (result.success) {
-        setError('Account created successfully! Please check your email for verification.');
+        setError(
+          'Account created successfully! Please check your email for verification.'
+        );
       } else {
         setError(result.message);
       }
@@ -48,9 +50,9 @@ const SignupPage = () => {
 
     try {
       const result = await signInWithGoogle();
-      
+
       if (result.success) {
-        // Google OAuth handles redirection, so no manual navigation here.
+        // Google OAuth handles redirection, no manual navigation or notification here.
       } else {
         setError(result.message);
       }
@@ -60,7 +62,7 @@ const SignupPage = () => {
       setLoading(false);
     }
   };
-  
+
   const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -105,11 +107,11 @@ const SignupPage = () => {
           >
             Create an Account
           </motion.h2>
-          
+
           {error && (
-            <motion.div 
+            <motion.div
               className={`tw-px-4 tw-py-3 tw-rounded tw-mb-4 ${
-                error.includes('successfully') 
+                error.includes('successfully')
                   ? 'tw-bg-green-100 tw-border tw-border-green-400 tw-text-green-700'
                   : 'tw-bg-red-100 tw-border tw-border-red-400 tw-text-red-700'
               }`}
@@ -173,15 +175,13 @@ const SignupPage = () => {
               <button
                 type="submit"
                 className="tw-w-full tw-bg-primary tw-text-white tw-py-2 tw-px-4 tw-rounded-md tw-font-semibold tw-transition-colors hover:tw-bg-secondary disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
-                whileHover={{ scale: loading ? 1 : 1.05 }}
-                whileTap={{ scale: loading ? 1 : 0.95 }}
                 disabled={loading}
               >
                 {loading ? 'Creating Account...' : 'Sign Up'}
               </button>
             </motion.div>
           </form>
-          
+
           <motion.p
             className="tw-mt-4 tw-text-center tw-text-sm tw-text-muted"
             variants={itemVariants}
@@ -194,7 +194,7 @@ const SignupPage = () => {
               Log In
             </Link>
           </motion.p>
-          
+
           <motion.div variants={itemVariants} className="tw-mt-6">
             <div className="tw-flex tw-items-center tw-justify-center tw-space-x-2">
               <div className="tw-border-b tw-border-border tw-w-full" />
@@ -205,8 +205,6 @@ const SignupPage = () => {
               className="tw-w-full tw-mt-4 tw-flex tw-items-center tw-justify-center tw-space-x-2 tw-bg-background tw-border tw-border-border tw-text-text tw-py-2 tw-px-4 tw-rounded-md tw-font-semibold tw-transition-colors hover:tw-bg-card disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
               onClick={handleGoogleSignUp}
               disabled={loading}
-              whileHover={{ scale: loading ? 1 : 1.02 }}
-              whileTap={{ scale: loading ? 1 : 0.98 }}
             >
               <FcGoogle color={googleLogoColor} />
               <span>{loading ? 'Signing up...' : 'Sign up with Google'}</span>
