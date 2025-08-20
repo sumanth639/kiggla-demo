@@ -108,7 +108,7 @@ const HeroSection = () => {
 
       <div className="tw-container tw-mx-auto tw-px-6 sm:tw-px-8 md:tw-px-16 tw-relative tw-z-20 tw-flex tw-flex-1">
         <motion.div
-          className="tw-flex tw-flex-col tw-w-full tw-pt-20 sm:tw-pt-24 md:tw-pt-28 lg:tw-pt-32"
+          className="tw-flex tw-flex-col tw-w-full tw-pt-20 sm:tw-pt-24 md:tw-pt-28 lg:tw-pt-[185px]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
