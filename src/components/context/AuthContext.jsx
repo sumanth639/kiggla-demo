@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { supabase } from '../../supabaseClient'; // Make sure this path is correct
+import { supabase } from '../../supabaseClient';
 
 const AuthContext = createContext();
 
@@ -7,9 +7,21 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Helper function to send the admin notification
+  const WEB3FORM_ACCESS_KEY = import.meta.env.VITE_WEB3FORM_ACCESS_KEY;
+
   const notifyAdmin = async (currentUser) => {
     try {
+      const { data: userData, error: fetchError } = await supabase
+        .from('users')
+        .select('notified')
+        .eq('id', currentUser.id)
+        .single();
+
+      if (fetchError || userData?.notified) {
+        console.log('User has already been notified, skipping.');
+        return;
+      }
+
       await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
@@ -17,41 +29,33 @@ export const AuthContextProvider = ({ children }) => {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORM_ACCESS_KEY,
-          subject: 'New Member to Kiggla!',
-          message: `A new user has just registered and confirmed their email.\n\nEmail: ${
-            currentUser.email
-          }\nName: ${currentUser.user_metadata?.full_name || currentUser.full_name || 'N/A'}`,
+          access_key: WEB3FORM_ACCESS_KEY,
+          subject: '🎉 New Member on Kiggla!',
+          message: `A new user has just registered and confirmed their email.
+                    \n\nEmail: ${currentUser.email}
+                    \nName: ${currentUser.user_metadata?.full_name || 'N/A'}`,
         }),
       });
       console.log('Admin notified successfully.');
+
+      const { error: updateError } = await supabase
+        .from('users')
+        .update({ notified: true })
+        .eq('id', currentUser.id);
+
+      if (updateError) {
+        console.error(
+          'Failed to update user notification status:',
+          updateError
+        );
+      }
     } catch (error) {
       console.error('Failed to notify admin:', error);
     }
   };
 
-  // Function to handle email/password sign-up
   const signUpNewUser = async ({ email, password, name }) => {
     try {
-      const { data: emailExists, error: rpcError } = await supabase.rpc(
-        'get_user_id_by_email',
-        { email_to_check: email }
-      );
-
-      if (rpcError) {
-        return {
-          success: false,
-          message: `An error occurred: ${rpcError.message}`,
-        };
-      }
-
-      if (emailExists) {
-        return {
-          success: false,
-          message: 'This email is already registered. Please log in.',
-        };
-      }
-
       const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
@@ -70,7 +74,6 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
-  // Function to handle email/password login
   const logInUser = async ({ email, password }) => {
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
@@ -93,7 +96,6 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
-  // Function to handle Google sign-in
   const signInWithGoogle = async () => {
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
@@ -154,45 +156,66 @@ export const AuthContextProvider = ({ children }) => {
       if (error) {
         return { success: false, message: `Error: ${error.message}` };
       }
+      setUser(null); // Explicitly clear the user state
       return { success: true };
     } catch (error) {
       return { success: false, message: `Error: ${error.message}` };
     }
   };
 
-  // This hook listens for auth state changes
   useEffect(() => {
-  let isNotified = false; // safeguard to prevent duplicate notifyAdmin calls
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(async (event, session) => {
+      setUser(session?.user ?? null);
+      setLoading(false);
 
-  // Get the initial session and set the user
-  supabase.auth.getSession().then(({ data: { session } }) => {
-    setUser(session?.user ?? null);
-    setLoading(false);
-  });
+      if (
+        event === 'SIGNED_IN' &&
+        session?.user &&
+        session.user.email_confirmed_at
+      ) {
+        const isNewUser =
+          new Date(session.user.created_at) -
+            new Date(session.user.last_sign_in_at) <
+          5000;
 
-  // Subscribe to auth state changes
-  const {
-    data: { subscription },
-  } = supabase.auth.onAuthStateChange((event, session) => {
-    setUser(session?.user ?? null);
-    setLoading(false);
+        if (isNewUser) {
+          const { data, error } = await supabase
+            .from('users')
+            .select('id, notified')
+            .eq('id', session.user.id)
+            .single();
 
-    if (
-      event === "SIGNED_IN" &&
-      session?.user?.email_confirmed_at &&
-      !isNotified // ✅ only notify once
-    ) {
-      notifyAdmin(session.user);
-      isNotified = true;
-    }
-  });
+          if (error && error.code === 'PGRST116') {
+            const { error: insertError } = await supabase.from('users').insert({
+              id: session.user.id,
+              email: session.user.email,
+              full_name: session.user.user_metadata?.full_name || '',
+            });
 
-  // Cleanup on unmount
-  return () => {
-    subscription.unsubscribe();
-  };
-}, []);
+            if (insertError) {
+              console.error('Error creating user profile:', insertError);
+            }
+          }
 
+          const { data: userData, error: fetchError } = await supabase
+            .from('users')
+            .select('notified')
+            .eq('id', session.user.id)
+            .single();
+
+          if (!fetchError && !userData?.notified) {
+            notifyAdmin(session.user);
+          }
+        }
+      }
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
 
   return (
     <AuthContext.Provider

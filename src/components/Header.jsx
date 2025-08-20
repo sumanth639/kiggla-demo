@@ -25,7 +25,6 @@ export default function Header({ variant }) {
   const userMenuRef = useRef(null);
   const [activeHash, setActiveHash] = useState(window.location.hash || '#home');
 
-  // Click outside handler for user menu
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
@@ -202,7 +201,6 @@ export default function Header({ variant }) {
     }
   };
 
-  // Get user avatar URL or initials
   const getUserAvatar = () => {
     if (user?.user_metadata?.avatar_url) {
       return user.user_metadata.avatar_url;
@@ -228,13 +226,11 @@ export default function Header({ variant }) {
       >
         <div className="tw-container tw-mx-auto tw-px-4 lg:tw-px-8">
           <div className="tw-relative tw-flex tw-h-[90px] tw-items-center tw-justify-between">
-            {/* Logo - Left Side */}
             <div className="tw-flex-shrink-0 tw-w-auto">
               <a href="#home" className="tw-block">
                 <img src={logoSrc} alt="Logo" className="tw-max-w-[130px]" />
               </a>
             </div>
-            {/* Navigation - Absolutely Centered */}
             <div className="tw-absolute tw-left-1/2 tw-transform tw--translate-x-1/2 tw-hidden lg:tw-block">
               <NavItems
                 setMobileToggle={setMobileToggle}
@@ -247,11 +243,9 @@ export default function Header({ variant }) {
                 textColor={getTextColor()}
               />
             </div>
-            {/* User Menu or Login/Signup Buttons and Theme Switcher - Right Side */}
             <div className="tw-flex-shrink-0">
               <div className="tw-flex tw-items-center tw-gap-4">
                 {user ? (
-                  // User is logged in - show user menu
                   <div className="tw-relative" ref={userMenuRef}>
                     <button
                       onClick={() => setShowUserMenu(!showUserMenu)}
@@ -276,7 +270,6 @@ export default function Header({ variant }) {
                           'User'}
                       </span>
                     </button>
-                    {/* User Dropdown Menu */}
                     <AnimatePresence>
                       {showUserMenu && (
                         <motion.div
@@ -304,7 +297,6 @@ export default function Header({ variant }) {
                     </AnimatePresence>
                   </div>
                 ) : (
-                  // User is not logged in - show login/signup buttons
                   <div className="tw-hidden md:tw-block">
                     <Link
                       className="tw-text-white tw-bg-primary tw-py-3 tw-px-6 tw-rounded-full tw-font-semibold tw-transition-colors tw-duration-300 hover:tw-bg-secondary"
@@ -357,7 +349,6 @@ export default function Header({ variant }) {
               textColor="tw-text-text"
             />
             {user ? (
-              // Mobile user menu
               <div className="tw-mt-6 tw-text-center tw-flex tw-flex-col tw-gap-4">
                 <div className="tw-flex tw-items-center tw-justify-center tw-gap-3 tw-p-4 tw-bg-gray-50 dark:tw-bg-gray-800 tw-rounded-lg">
                   {user.user_metadata?.avatar_url ? (
@@ -389,7 +380,6 @@ export default function Header({ variant }) {
                 </button>
               </div>
             ) : (
-              // Mobile login/signup buttons
               <div className="tw-mt-6 tw-text-center tw-flex tw-flex-col tw-gap-4">
                 <Link
                   className="tw-bg-primary tw-text-white tw-py-3 tw-px-6 tw-rounded-full tw-font-semibold tw-transition-colors hover:tw-bg-secondary tw-w-full"
