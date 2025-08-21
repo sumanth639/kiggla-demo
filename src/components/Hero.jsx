@@ -75,7 +75,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="tw-relative tw-min-h-screen tw-pt-[90px] tw-bg-background tw-text-text tw-overflow-hidden tw-flex tw-flex-col">
+    <div className="tw-relative tw-min-h-screen tw-bg-background tw-text-text tw-overflow-hidden tw-flex tw-flex-col">
       <AnimatePresence>
         <motion.div
           key={backgroundImages[currentSlide]}
@@ -106,9 +106,9 @@ const HeroSection = () => {
         />
       </div>
 
-      <div className="tw-container tw-mx-auto tw-px-6 sm:tw-px-8 md:tw-px-16 tw-relative tw-z-20 tw-flex tw-flex-1">
+      <div className="tw-container tw-mx-auto tw-px-6 sm:tw-px-8 md:tw-px-16 tw-relative tw-z-20 tw-flex tw-flex-1 tw-items-center tw-justify-center">
         <motion.div
-          className="tw-flex tw-flex-col tw-w-full tw-pt-20 sm:tw-pt-24 md:tw-pt-28 lg:tw-pt-[185px]"
+          className="tw-flex tw-flex-col tw-w-full"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -116,13 +116,13 @@ const HeroSection = () => {
           <div className="tw-flex tw-flex-col tw-space-y-6 sm:tw-space-y-8 tw-text-center tw-relative tw-max-w-5xl tw-mx-auto">
             <motion.div variants={itemVariants}>
               <h1 className="tw-text-4xl sm:tw-text-5xl md:tw-text-6xl lg:tw-text-7xl animate-title-glow tw-text-white tw-font-bold tw-leading-tight tw-tracking-wider tw-select-none">
-                <span className='tw-text-secondary'> Transform</span> 
+                <span className="tw-text-secondary"> Transform</span>
                 <br />
-                <span className='tw-text-primary'>Your Digital Future</span> 
+                <span className="tw-text-primary">Your Digital Future</span>
               </h1>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <p className="tw-max-w-2xl tw-text-lg sm:tw-text-xl md:tw-text-2xl tw-text-white tw-font-extralight tw-leading-relaxed tw-mx-auto tw-min-h-[40px] sm:tw-min-h-[50px]">
+              <p className="tw-max-w-2xl tw-text-lg sm:tw-text-xl md:tw-text-2xl tw-text-white tw-font-normal tw-leading-relaxed tw-mx-auto tw-min-h-[40px] sm:tw-min-h-[50px]">
                 {currentTypingText}
                 <span
                   className="tw-animate-pulse"
