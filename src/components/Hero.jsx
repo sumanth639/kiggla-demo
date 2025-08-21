@@ -122,7 +122,7 @@ const HeroSection = () => {
               </h1>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <p className="tw-max-w-2xl tw-text-lg sm:tw-text-xl md:tw-text-2xl tw-text-white tw-font-normal tw-leading-relaxed tw-mx-auto tw-min-h-[40px] sm:tw-min-h-[50px]">
+              <p className="tw-max-w-2xl tw-text-lg sm:tw-text-xl md:tw-text-2xl tw-text-white tw-font-bold tw-leading-relaxed tw-mx-auto tw-min-h-[40px] sm:tw-min-h-[50px]">
                 {currentTypingText}
                 <span
                   className="tw-animate-pulse"
